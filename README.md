@@ -30,6 +30,10 @@ Linuxネットワークに関するメモ
 
 ## ネットワークインターフェイスデータシート
 
+ときどき改定されて下記URLからダウンロードできなくなっているかもしれない。
+
+- Intel 10GbE Controller X710 データシート https://www.intel.com/content/www/us/en/content-details/332464/intel-ethernet-controller-x710-xxv710-xl710-datasheet.html
+
 ## 解説URLメモ
 
 - https://blog.packagecloud.io/monitoring-tuning-linux-networking-stack-receiving-data/
