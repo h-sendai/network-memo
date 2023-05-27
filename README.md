@@ -34,8 +34,8 @@ Linuxネットワークに関するメモ
 
 - Intel I350 Controller データシート (Linuxではドライバ名igbのもの)
 https://www.intel.com/content/dam/www/public/us/en/documents/datasheets/ethernet-controller-i350-datasheet.pdf
-
 - Intel 10GbE Controller X710 データシート https://www.intel.com/content/www/us/en/content-details/332464/intel-ethernet-controller-x710-xxv710-xl710-datasheet.html
+- Intel 10GbE Linux Performance tuning guide https://www.intel.com/content/www/us/en/content-details/334019/intel-ethernet-controller-x710-xl710-and-intel-ethernet-converged-network-adapter-x710-xl710-family-linux-performance-tuning-guide.html
 
 ## 解説URLメモ
 
