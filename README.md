@@ -32,6 +32,9 @@ Linuxネットワークに関するメモ
 
 ときどき改定されて下記URLからダウンロードできなくなっているかもしれない。
 
+- Intel I350 Controller データシート (Linuxではドライバ名igbのもの)
+https://www.intel.com/content/dam/www/public/us/en/documents/datasheets/ethernet-controller-i350-datasheet.pdf
+
 - Intel 10GbE Controller X710 データシート https://www.intel.com/content/www/us/en/content-details/332464/intel-ethernet-controller-x710-xxv710-xl710-datasheet.html
 
 ## 解説URLメモ
