@@ -32,6 +32,12 @@ Linuxネットワークに関するメモ
 
 と書いてある。
 
+```
+iperf -i 1 -e -c remote
+```
+
+とするとRetransmissionのデータがでる。
+
 ## iperf3
 
 ## 割り込み
