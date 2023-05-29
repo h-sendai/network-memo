@@ -6,11 +6,46 @@ Linuxネットワークに関するメモ
 
 ## ipコマンド
 
-## ethtool
+### IPアドレスの取得
 
-### ethtool -a/-A
+```console
+% ip address
+```
+
+``ip a``と省力化できる。
+
+### IPアドレスのセット
+
+```console
+% ip a set 192.168.10.10/24 dev eth0
+```
+
+### ARPテーブル
+
+```console
+% ip n
+```
+
+### リンク
+
+```console
+% ip l
+```
+
+### ルーティングテーブル
+
+```console
+% ip r
+```
 
 ### ethtool -g/-G
+
+### ethtool -l/-L
+
+ネットワークインターフェイスのリングバッファ数の取得、セット。
+```console
+ethtool -l eth0
+```
 
 ### ethtool -c/-C
 
