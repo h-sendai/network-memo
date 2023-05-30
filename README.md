@@ -88,14 +88,69 @@ png画像ファイル化されたものが作られる。
 % ip r
 ```
 
-### ethtool -g/-G
+## ネットワークインターフェイスの設定
 
+ethtoolコマンドでネットワークインターフェイスの設定状況の取得、
+変更ができる。
+
+### ethtool -l eth0
 ### ethtool -l/-L
 
-ネットワークインターフェイスのリングバッファ数の取得、セット。
+ネットワークインターフェイスのキュー(リングバッファ数)の取得、セット
+ができる。最大値はCPUコアになっていてそれより多くセットしようとすると
+エラーになる。
+
+例: igb (Intel 1 GbE)
 ```console
-% ethtool -l eth0
+% ethtool -l exp0
+Channel parameters for exp0:
+Pre-set maximums:
+RX:		n/a
+TX:		n/a
+Other:		1
+Combined:	8
+Current hardware settings:
+RX:		n/a
+TX:		n/a
+Other:		1
+Combined:	8
 ```
+
+例: ixgbe (Intel 10 GbE) (CPUコアが8個のPCで実行した例。ハードウェアスペックとしてはもっと多い)
+
+```console
+% ethtool -l texp0
+Channel parameters for texp0:
+Pre-set maximums:
+RX:		n/a
+TX:		n/a
+Other:		1
+Combined:	8
+Current hardware settings:
+RX:		n/a
+TX:		n/a
+Other:		1
+Combined:	8
+```
+
+例: ixgbe (Intel 10 GbE) (HyperThreadをいれてCPUコアが12個のPCで実行した例)
+
+```console
+% ethtool -l enp4s0f0
+Channel parameters for enp4s0f0:
+Pre-set maximums:
+RX:		n/a
+TX:		n/a
+Other:		1
+Combined:	12
+Current hardware settings:
+RX:		n/a
+TX:		n/a
+Other:		1
+Combined:	12
+```
+
+### ethtool -g/-G
 
 ### ethtool -c/-C
 
