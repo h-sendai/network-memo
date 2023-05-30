@@ -18,6 +18,17 @@ lrwxrwxrwx. 1 root root 0 May 29 08:57 exp0 -> ../../devices/pci0000:00/0000:00:
 lrwxrwxrwx. 1 root root 0 May 29 08:57 jlan -> ../../devices/pci0000:00/0000:00:01.0/0000:05:00.0/net/jlan/
 lrwxrwxrwx. 1 root root 0 May 29 08:57 lo -> ../../devices/virtual/net/lo/
 ```
+
+## HyperThreadの無効化
+
+たいていHyperThreadが有効な状態で起動する。無効化するには
+以下のいずれかの方法を使う。
+
+- BIOSあるいはUEFIファームウェアで無効化する
+- Linuxカーネルコマンドラインにnosmtを追加する
+- ``echo off | sudo tree /sys/devices/system/cpu/smt/control``を実行する
+- ``echo 0 | sudo tee /sys/devices/system/cpu/cpuN/online``を必要な数だけ繰り返す。NにHyperThreadに対応するCPUコア番号を入れる。
+
 ## ハードウェア情報の取得
 
 hwlocおよびlwloc-guiパッケージをインストールするとCPUのコア番号の振り方、
@@ -30,6 +41,8 @@ L1, L2, L3キャッシュのコア間での共有情報がわかる。
 
 最初のコマンドで情報がテキストで保存される。2番目のコマンドで
 png画像ファイル化されたものが作られる。
+
+(注: 以下2台ともHyperThreadはオフにした状態で起動している)
 
 例: ASUS ESC4000サーバー
 
