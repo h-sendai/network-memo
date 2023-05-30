@@ -18,8 +18,26 @@ lrwxrwxrwx. 1 root root 0 May 29 08:57 exp0 -> ../../devices/pci0000:00/0000:00:
 lrwxrwxrwx. 1 root root 0 May 29 08:57 jlan -> ../../devices/pci0000:00/0000:00:01.0/0000:05:00.0/net/jlan/
 lrwxrwxrwx. 1 root root 0 May 29 08:57 lo -> ../../devices/virtual/net/lo/
 ```
+## ハードウェア情報の取得
 
-## ipコマンド
+hwlocおよびlwloc-guiパッケージをインストールするとCPUのコア番号の振り方、
+L1, L2, L3キャッシュのコア間での共有情報がわかる。
+
+```console
+% hwloc-ls > hwloc-ls.out
+% lstopo mymachine.png
+```
+
+最初のコマンドで情報がテキストで保存される。2番目のコマンドで
+png画像ファイル化されたものが作られる。
+
+例: ASUS ESC4000サーバー
+
+- [ASUS-ESC4000A-E10/hwloc-ls.txt](ASUS-ESC4000A-E10/hwloc-ls.txt)
+- [ASUS-ESC4000A-E10/ESC4000A.png](ASUS-ESC4000A-E10/ESC4000A.png)
+
+
+## Ipコマンド
 
 ### IPアドレスの取得
 
