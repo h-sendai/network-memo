@@ -49,7 +49,7 @@ png画像ファイル化されたものが作られる。
 - [ASUS-ESC4000A-E10/hwloc-ls.txt](ASUS-ESC4000A-E10/hwloc-ls.txt)
 - [ASUS-ESC4000A-E10/ESC4000A.png](ASUS-ESC4000A-E10/ESC4000A.png)
 
-例: Dell PowerEdge T430
+例: Dell PowerEdge T430 (CPUパッケージが2個ある例)
 
 - [Dell-PowerEdge-T430/T430.txt](Dell-PowerEdge-T430/T430.txt)
 - [Dell-PowerEdge-T430/T430.png](Dell-PowerEdge-T430/T430.png)
