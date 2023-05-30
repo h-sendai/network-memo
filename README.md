@@ -44,7 +44,7 @@ Linuxネットワークに関するメモ
 
 ネットワークインターフェイスのリングバッファ数の取得、セット。
 ```console
-ethtool -l eth0
+% ethtool -l eth0
 ```
 
 ### ethtool -c/-C
