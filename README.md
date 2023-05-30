@@ -194,6 +194,17 @@ RX Jumbo:	n/a
 TX:		4096
 ```
 
+### ethtool -a/-A eth0
+
+flow control (pause)の設定状況および設定ができる。
+
+```console
+% ethtool -A enp4s0f0 rx on tx on
+```
+
+flow controlはリンクパートナー側(スイッチに接続しているなら
+スイッチ)の設定も必要になることがある。
+
 ### ethtool -c/-C
 
 ## ソケットレシーブバッファ
