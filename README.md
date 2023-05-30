@@ -4,6 +4,21 @@ Linuxネットワークに関するメモ
 
 ## ネットワークインターフェイス名の取得
 
+``/sys/class/net/``にインターフェイス名の
+シンボリックファイルがある:
+
+```console
+% ls /sys/class/net
+enp2s0@  exp0@	jlan@  lo@
+
+% ls -l /sys/class/net
+total 0
+lrwxrwxrwx. 1 root root 0 May 29 08:57 enp2s0 -> ../../devices/pci0000:00/0000:00:1c.5/0000:02:00.0/net/enp2s0/
+lrwxrwxrwx. 1 root root 0 May 29 08:57 exp0 -> ../../devices/pci0000:00/0000:00:1c.1/0000:03:00.0/net/exp0/
+lrwxrwxrwx. 1 root root 0 May 29 08:57 jlan -> ../../devices/pci0000:00/0000:00:01.0/0000:05:00.0/net/jlan/
+lrwxrwxrwx. 1 root root 0 May 29 08:57 lo -> ../../devices/virtual/net/lo/
+```
+
 ## ipコマンド
 
 ### IPアドレスの取得
