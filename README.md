@@ -159,7 +159,40 @@ Other:		1
 Combined:	12
 ```
 
-### ethtool -g/-G
+### ethtool -g/-G eth0
+
+リングバッファの長さの取得、設定ができる。
+
+まず現在の設定値を確認し、4096(最大値)に変更する例:
+```console
+% ethtool -g enp4s0f0
+Ring parameters for enp4s0f0:
+Pre-set maximums:
+RX:		4096
+RX Mini:	n/a
+RX Jumbo:	n/a
+TX:		4096
+Current hardware settings:
+RX:		512
+RX Mini:	n/a
+RX Jumbo:	n/a
+TX:		512
+
+% sudo ethtool -G enp4s0f0 rx 4096 tx 4096
+
+% ethtool -g enp4s0f0
+Ring parameters for enp4s0f0:
+Pre-set maximums:
+RX:		4096
+RX Mini:	n/a
+RX Jumbo:	n/a
+TX:		4096
+Current hardware settings:
+RX:		4096
+RX Mini:	n/a
+RX Jumbo:	n/a
+TX:		4096
+```
 
 ### ethtool -c/-C
 
