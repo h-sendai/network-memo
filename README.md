@@ -54,6 +54,16 @@ png画像ファイル化されたものが作られる。
 - [Dell-PowerEdge-T430/T430.txt](Dell-PowerEdge-T430/T430.txt)
 - [Dell-PowerEdge-T430/T430.png](Dell-PowerEdge-T430/T430.png)
 
+CPUが複数ある場合には使用するネットワークインターフェイスが
+どのCPUパッケージのPCIeバスにつながっているか把握する必要がある。
+上の出力でもわかるし
+```console
+% cat /sys/class/net/$NIC/device/local_cpulist
+0,2,4,6,8,10,12,14,16,18
+```
+のように``/sys/class/net/$NIC/device/local_cpulist``でもわかる。
+``$NIC``にはネットワークインターフェイス名を入れる。
+
 ## Ipコマンド
 
 ### IPアドレスの取得
