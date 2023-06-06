@@ -188,6 +188,15 @@ sudo ethtool -U $nic flow-type tcp4 src-port 1234 action 2
 ソースポートが1234であるパケットを2番目のキューに入れる。
 キューの番号は0から始まる。
 
+(注)
+```
+sudo ethtool -K $nic ntuple on
+```
+してからでないと``ethtool -U``できないNICもある
+(Intel 10GbEが該当する。
+Mellanox MT2892 Family (ConnectX-6 Dx)では必要なかった。
+(注終わり)
+
 設定は``ethtool -u $nic``で読める。
 
 Intel 10GbE (ixgbe)の例:
