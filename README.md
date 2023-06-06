@@ -182,6 +182,51 @@ flow controlはリンクパートナー側(スイッチに接続しているな�
 
 ### ethtool -U
 
+```
+sudo ethtool -U $nic flow-type tcp4 src-port 1234 action 2
+```
+ソースポートが1234であるパケットを2番目のキューに入れる。
+キューの番号は0から始まる。
+
+設定は``ethtool -u $nic``で読める。
+
+Intel 10GbE (ixgbe)の例:
+```console
+% sudo ethtool -u texp0
+8 RX rings available
+Total 1 rules
+
+Filter: 2045
+    Rule Type: TCP over IPv4
+    Src IP addr: 0.0.0.0 mask: 255.255.255.255
+    Dest IP addr: 0.0.0.0 mask: 255.255.255.255
+    TOS: 0x0 mask: 0xff
+    Src port: 0 mask: 0xffff
+    Dest port: 80 mask: 0x0
+    VLAN EtherType: 0x0 mask: 0xffff
+    VLAN: 0x0 mask: 0xffff
+    User-defined: 0x0 mask: 0xffffffffffffffff
+    Action: Direct to queue 1
+```
+消すのは``Filter:``で指定されている番号を使う。
+```
+ethtool -U $nic delete 2045
+```
+
+Mellanox MT2892 Family (ConnectX-6 Dx)の例:
+```
+Filter: 1023
+    Rule Type: TCP over IPv4
+    Src IP addr: 0.0.0.0 mask: 255.255.255.255
+    Dest IP addr: 0.0.0.0 mask: 255.255.255.255
+    TOS: 0x0 mask: 0xff
+    Src port: 1234 mask: 0x0
+    Dest port: 0 mask: 0xffff
+    Action: Direct to queue 6
+```
+
+portの他にIPアドレスなども指定できるようだ。
+
 ## ソケットレシーブバッファ
 
 ## データ転送速度
