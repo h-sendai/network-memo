@@ -268,6 +268,8 @@ iperf -i 1 -e -c remote
 
 ときどき改定されて下記URLからダウンロードできなくなっているかもしれない。
 
+- Intel 8257x Contoller データシート (Linuxではドライバ名e1000eのもの)
+https://sourceforge.net/projects/e1000/files/8257x%20Developer%20Manual/Revision%201.8/
 - Intel I350 Controller データシート (Linuxではドライバ名igbのもの)
 https://www.intel.com/content/dam/www/public/us/en/documents/datasheets/ethernet-controller-i350-datasheet.pdf
 - Intel 10GbE Controller X710 データシート https://www.intel.com/content/www/us/en/content-details/332464/intel-ethernet-controller-x710-xxv710-xl710-datasheet.html
