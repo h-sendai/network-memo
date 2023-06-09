@@ -241,6 +241,14 @@ Filter: 1023
 
 portの他にIPアドレスなども指定できるようだ。
 
+### ethtool -d $nic
+
+``ethtool -d``でNICレジスタのダンプができる。出力結果は
+NICにより、e1000e, igb, ixgbeはレジスタ名も表示されてわかりやすい。
+これらのNICについては``ethtool -d $nic hex on``で16進でも表示可能。
+一方、tg3, i40eは最初から16進で表示されるので意味を知りたければ
+コントローラのデータシートを読む必要がある。
+
 ## ソケットレシーブバッファ
 
 ## データ転送速度
@@ -280,6 +288,8 @@ https://www.intel.com/content/dam/www/public/us/en/documents/datasheets/ethernet
 - Intel 10GbE Controller X710 データシート https://www.intel.com/content/www/us/en/content-details/332464/intel-ethernet-controller-x710-xxv710-xl710-datasheet.html
 - Intel 40GbE (i40e) Linux Performance tuning guide https://www.intel.com/content/www/us/en/content-details/334019/intel-ethernet-controller-x710-xl710-and-intel-ethernet-converged-network-adapter-x710-xl710-family-linux-performance-tuning-guide.html
 - Intel Ethernet 800 Series Linux Performance Tuning Guide (100GbE) https://www.intel.co.jp/content/www/jp/ja/support/articles/000088688/ethernet-products/800-series-network-adapters-up-to-100gbe.html
+
+- Broadcom NetXtreme BCM5751 (tg3) https://docs.broadcom.com/doc/1211168564147
 
 ## 解説URLメモ
 
