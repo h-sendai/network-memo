@@ -51,6 +51,11 @@ CPU番号についていくつか出力されるが
 ``P#N``のNが``taskset -c N``とか``sched_setaffinity()``で使われる
 CPUコア番号を示している。
 
+画像中PCIeバスの近くに数字が書いてあるが、これはPCIe機器の
+リンクアップスピードを表しているようだ。単位はGB/s ギガバイト毎秒。
+lspci -vvvでリンクアップスピードが取得できる。lspciのほうは単位が
+GT/s。1GT/sは1Gbps * (128/130)でほぼGbpsと同じ。
+
 例: ASUS ESC4000サーバー
 
 - [ASUS-ESC4000A-E10/hwloc-ls.txt](ASUS-ESC4000A-E10/hwloc-ls.txt)
