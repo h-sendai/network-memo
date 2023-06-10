@@ -247,6 +247,8 @@ Intelが出しているixgbeドライバ
 https://sourceforge.net/projects/e1000/files/ixgbe%20stable/5.18.13/
 に入っているREADME、あるいはlinux kernelソースコードの
 Documentation/networking/device_drivers/ethernet/intel/ixgbe.rst
+あるいは
+https://www.kernel.org/doc/html/latest/networking/device_drivers/ethernet/intel/ixgbe.html#sideband-perfect-filters
 には
 
 (以下引用中hash '#'を'$'に変更した)
