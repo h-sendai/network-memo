@@ -245,7 +245,9 @@ portの他にIPアドレスなども指定できるようだ。
 
 Intelが出しているixgbeドライバ
 https://sourceforge.net/projects/e1000/files/ixgbe%20stable/5.18.13/
-に入っているREADMEには
+に入っているREADME、あるいはlinux kernelソースコードの
+Documentation/networking/device_drivers/ethernet/intel/ixgbe.rst
+には
 
 (以下引用中hash '#'を'$'に変更した)
 > NOTES:
