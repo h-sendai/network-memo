@@ -241,6 +241,43 @@ Filter: 1023
 
 portの他にIPアドレスなども指定できるようだ。
 
+#### 注意
+
+Intelが出しているixgbeドライバ
+https://sourceforge.net/projects/e1000/files/ixgbe%20stable/5.18.13/
+に入っているREADMEには
+
+> NOTES:
+> For each flow-type, the programmed filters must all have the same matching
+> input set. For example, issuing the following two commands is acceptable:
+> 
+> # ethtool -U enp130s0 flow-type ip4 src-ip 192.168.0.1 src-port 5300 action 7
+> # ethtool -U enp130s0 flow-type ip4 src-ip 192.168.0.5 src-port 55 action 10
+> 
+> Issuing the next two commands, however, is not acceptable, since the first
+> specifies src-ip and the second specifies dst-ip:
+> 
+> # ethtool -U enp130s0 flow-type ip4 src-ip 192.168.0.1 src-port 5300 action 7
+> # ethtool -U enp130s0 flow-type ip4 dst-ip 192.168.0.5 src-port 55 action 10
+> 
+> The second command will fail with an error. You may program multiple filters
+> with the same fields, using different values, but, on one device, you may not
+> program two tcp4 filters with different matching fields.
+> 
+> The ixgbe driver does not support matching on a subportion of a field, thus
+> partial mask fields are not supported.
+
+という注意がある。たしかに
+
+```
+% sudo ethtool -U $nic flow-type tcp4 dst-port 1234 action 3
+Added rule with ID 2045
+% sudo ethtool -U $nic flow-type tcp4 src-port 1234 action 3
+rmgr: Cannot insert RX class rule: Invalid argument
+```
+
+となる。
+
 ### ethtool -d $nic
 
 ``ethtool -d``でNICレジスタのダンプができる。出力結果は
