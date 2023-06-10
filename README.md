@@ -247,18 +247,19 @@ Intelが出しているixgbeドライバ
 https://sourceforge.net/projects/e1000/files/ixgbe%20stable/5.18.13/
 に入っているREADMEには
 
+(以下引用中hash '#'を'$'に変更した)
 > NOTES:
 > For each flow-type, the programmed filters must all have the same matching
 > input set. For example, issuing the following two commands is acceptable:
 > 
-> # ethtool -U enp130s0 flow-type ip4 src-ip 192.168.0.1 src-port 5300 action 7
-> # ethtool -U enp130s0 flow-type ip4 src-ip 192.168.0.5 src-port 55 action 10
+> $ ethtool -U enp130s0 flow-type ip4 src-ip 192.168.0.1 src-port 5300 action 7
+> $ ethtool -U enp130s0 flow-type ip4 src-ip 192.168.0.5 src-port 55 action 10
 > 
 > Issuing the next two commands, however, is not acceptable, since the first
 > specifies src-ip and the second specifies dst-ip:
 > 
-> # ethtool -U enp130s0 flow-type ip4 src-ip 192.168.0.1 src-port 5300 action 7
-> # ethtool -U enp130s0 flow-type ip4 dst-ip 192.168.0.5 src-port 55 action 10
+> $ ethtool -U enp130s0 flow-type ip4 src-ip 192.168.0.1 src-port 5300 action 7
+> $ ethtool -U enp130s0 flow-type ip4 dst-ip 192.168.0.5 src-port 55 action 10
 > 
 > The second command will fail with an error. You may program multiple filters
 > with the same fields, using different values, but, on one device, you may not
