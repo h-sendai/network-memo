@@ -1,0 +1,592 @@
+0x00000: CTRL (Device control register)               0x581C0241
+       Invert Loss-Of-Signal:                         no
+       Receive flow control:                          enabled
+       Transmit flow control:                         enabled
+       VLAN mode:                                     enabled
+       Set link up:                                   1
+       D3COLD WakeUp capability advertisement:        enabled
+       Auto speed detect:                             disabled
+       Speed select:                                  1000Mb/s
+       Force speed:                                   no
+       Force duplex:                                  no
+0x00008: STATUS (Device status register)              0x00280787
+       Duplex:                                        full
+       Link up:                                       link config
+       Transmission:                                  on
+       DMA clock gating:                              disabled
+       TBI mode:                                      disabled
+       Link speed:                                    1000Mb/s
+       Bus type:                                      PCI Express
+0x00100: RCTL (Receive control register)              0x04048022
+       Receiver:                                      enabled
+       Store bad packets:                             disabled
+       Unicast promiscuous:                           disabled
+       Multicast promiscuous:                         disabled
+       Long packet:                                   enabled
+       Descriptor minimum threshold size:             1/2
+       Broadcast accept mode:                         accept
+       VLAN filter:                                   enabled
+       Cononical form indicator:                      disabled
+       Discard pause frames:                          filtered
+       Pass MAC control frames:                       don't pass
+       Loopback mode:                                 normal
+       Receive buffer size:                           2048
+0x02808: RDLEN  (Receive desc length)                 0x00001000
+0x02810: RDH    (Receive desc head)                   0x0000000D
+0x02818: RDT    (Receive desc tail)                   0x0000000C
+0x00400: TCTL (Transmit ctrl register)                0xA503F0FA
+       Transmitter:                                   enabled
+       Pad short packets:                             enabled
+       Software XOFF Transmission:                    disabled
+       Re-transmit on late collision:                 enabled
+0x03808: TDLEN       (Transmit desc length)           0x00001000
+0x03810: TDH         (Transmit desc head)             0x00000000
+0x03818: TDT         (Transmit desc tail)             0x00000000
+0x00018: CTRL_EXT    (Extended device control)        0x101400C0
+0x00018: MDIC        (MDI control)                    0x180A7C00
+0x00024: SCTL        (SERDES ANA)                     0x00000000
+0x00034: CONNSW      (Copper/Fiber switch control)    0x00000400
+0x00038: VET         (VLAN Ether type)                0x00008100
+0x00E00: LEDCTL      (LED control)                    0x07068402
+0x01000: PBA         (Packet buffer allocation)       0x00000000
+0x01008: PBS         (Packet buffer size)             0x00000000
+0x01048: FRTIMER     (Free running timer)             0xD2AA08BA
+0x0104C: TCPTIMER    (TCP timer)                      0x00000000
+0x00010: EEC         (EEPROM/FLASH control)           0x0008471E
+0x01580: EICR        (Extended interrupt cause)       0x00000000
+0x01520: EICS        (Extended interrupt cause set)   0x00000000
+0x01524: EIMS        (Extended interrup set/read)     0x800001FF
+0x01528: EIMC        (Extended interrupt mask clear)  0x800001FF
+0x0152C: EIAC        (Extended interrupt auto clear)  0x000001FF
+0x01530: EIAM        (Extended interrupt auto mask)   0x000001FF
+0x01500: ICR         (Interrupt cause read)           0x00000081
+0x01504: ICS         (Interrupt cause set)            0x00000081
+0x01508: IMS         (Interrupt mask set/read)        0x50080004
+0x0150C: IMC         (Interrupt mask clear)           0x50080004
+0x04100: IAC         (Interrupt assertion count)      0x00000000
+0x01510: IAM         (Interr acknowledge auto-mask)   0x00000000
+0x05AC0: IMIRVP      (Immed interr rx VLAN priority)  0x00000000
+0x00028: FCAL        (Flow control address low)       0x00C28001
+0x0002C: FCAH        (Flow control address high)      0x00000100
+0x00170: FCTTV       (Flow control tx timer value)    0x0000FFFF
+0x02160: FCRTL       (Flow control rx threshold low)  0x800063F0
+0x02168: FCRTH       (Flow control rx threshold high) 0x00006400
+0x02460: FCRTV       (Flow control refresh threshold) 0x00000000
+0x05000: RXCSUM      (Receive checksum control)       0x00002F00
+0x05004: RLPML       (Receive long packet max length) 0x00000600
+0x05008: RFCTL       (Receive filter control)         0x00010000
+0x05818: MRQC        (Multiple rx queues command)     0x00370002
+0x0581C: VMD_CTL     (VMDq control)                   0x00000000
+0x00404: TCTL_EXT    (Transmit control extended)      0x00010840
+0x00410: TIPG        (Transmit IPG)                   0x00601008
+0x03590: DTXCTL      (DMA tx control)                 0x00000080
+0x05800: WUC         (Wake up control)                0x00000000
+0x05808: WUFC        (Wake up filter control)         0x00000000
+0x05810: WUS         (Wake up status)                 0x00000000
+0x05838: IPAV        (IP address valid)               0x00000000
+0x05900: WUPL        (Wake up packet length)          0x5B37F3BF
+0x04200: PCS_CFG     (PCS configuration 0)            0x00000008
+0x04208: PCS_LCTL    (PCS link control)               0x0210000C
+0x0420C: PCS_LSTS    (PCS link status)                0x0040000D
+0x04218: PCS_ANADV   (AN advertisement)               0x000001A0
+0x0421C: PCS_LPAB    (Link partner ability)           0x00000000
+0x04220: PCS_NPTX    (Next Page transmit)             0x00000000
+0x04224: PCS_LPABNP  (Link partner ability Next Page) 0x00000000
+0x04000: CRCERRS     (CRC error count)                0x00000000
+0x04004: ALGNERRC    (Alignment error count)          0x00000000
+0x04008: SYMERRS     (Symbol error count)             0x00000000
+0x0400C: RXERRC      (RX error count)                 0x00000000
+0x04010: MPC         (Missed packets count)           0x00000000
+0x04014: SCC         (Single collision count)         0x00000000
+0x04018: ECOL        (Excessive collisions count)     0x00000000
+0x0401C: MCC         (Multiple collision count)       0x00000000
+0x04020: LATECOL     (Late collisions count)          0x00000000
+0x04028: COLC        (Collision count)                0x00000000
+0x04030: DC          (Defer count)                    0x00000000
+0x04034: TNCRS       (Transmit with no CRS)           0x00000000
+0x04038: SEC         (Sequence error count)           0x00000000
+0x0403C: HTDPMC      (Host tx discrd pkts MAC count)  0x00000000
+0x04040: RLEC        (Receive length error count)     0x00000000
+0x04048: XONRXC      (XON received count)             0x00000000
+0x0404C: XONTXC      (XON transmitted count)          0x00000000
+0x04050: XOFFRXC     (XOFF received count)            0x00000000
+0x04054: XOFFTXC     (XOFF transmitted count)         0x00000000
+0x04058: FCRUC       (FC received unsupported count)  0x00000000
+0x0405C: PRC64       (Packets rx (64 B) count)        0x0000000D
+0x04060: PRC127      (Packets rx (65-127 B) count)    0x00000014
+0x04064: PRC255      (Packets rx (128-255 B) count)   0x0000000B
+0x04068: PRC511      (Packets rx (256-511 B) count)   0x00000000
+0x0406C: PRC1023     (Packets rx (512-1023 B) count)  0x00002EFF
+0x04070: PRC1522     (Packets rx (1024-max B) count)  0x00020500
+0x04074: GPRC        (Good packets received count)    0x0002342B
+0x04078: BPRC        (Broadcast packets rx count)     0x00000009
+0x0407C: MPRC        (Multicast packets rx count)     0x00000016
+0x04080: GPTC        (Good packets tx count)          0x0000509B
+0x04088: GORCL       (Good octets rx count lower)     0x0C5A48C1
+0x0408C: GORCH       (Good octets rx count upper)     0x00000000
+0x04090: GOTCL       (Good octets tx count lower)     0x00160B69
+0x04094: GOTCH       (Good octets tx count upper)     0x00000000
+0x040A0: RNBC        (Receive no buffers count)       0x00000000
+0x040A4: RUC         (Receive undersize count)        0x00000000
+0x040A8: RFC         (Receive fragment count)         0x00000000
+0x040AC: ROC         (Receive oversize count)         0x00000000
+0x040B0: RJC         (Receive jabber count)           0x00000000
+0x040B4: MGPRC       (Management packets rx count)    0x00000000
+0x040B8: MGPDC       (Management pkts dropped count)  0x00000000
+0x040BC: MGPTC       (Management packets tx count)    0x00000000
+0x040C0: TORL        (Total octets received lower)    0x00000000
+0x040C4: TORH        (Total octets received upper)    0x00000000
+0x040C8: TOTL        (Total octets transmitted lower) 0x00000000
+0x040CC: TOTH        (Total octets transmitted upper) 0x00000000
+0x040D0: TPR         (Total packets received)         0x0002343D
+0x040D4: TPT         (Total packets transmitted)      0x0000509B
+0x040D8: PTC64       (Packets tx (64 B) count)        0x0000000A
+0x040DC: PTC127      (Packets tx (65-127 B) count)    0x00005090
+0x040E0: PTC255      (Packets tx (128-255 B) count)   0x00000001
+0x040E4: PTC511      (Packets tx (256-511 B) count)   0x00000000
+0x040E8: PTC1023     (Packets tx (512-1023 B) count)  0x00000000
+0x040EC: PTC1522     (Packets tx (> 1024 B) count)    0x00000000
+0x040F0: MPTC        (Multicast packets tx count)     0x00000001
+0x040F4: BPTC        (Broadcast packets tx count)     0x00000002
+0x040F8: TSCTC       (TCP segment context tx count)   0x00000000
+0x04100: IAC         (Interrupt assertion count)      0x00017D4F
+0x04104: RPTHC       (Rx packets to host count)       0x00000000
+0x04118: HGPTC       (Host good packets tx count)     0x00000000
+0x04128: HGORCL      (Host good octets rx cnt lower)  0x00000000
+0x0412C: HGORCH      (Host good octets rx cnt upper)  0x00000000
+0x04130: HGOTCL      (Host good octets tx cnt lower)  0x00000000
+0x04134: HGOTCH      (Host good octets tx cnt upper)  0x00000000
+0x04138: LENNERS     (Length error count)             0x00000000
+0x04228: SCVPC       (SerDes/SGMII code viol pkt cnt) 0x00000000
+0x0A018: HRMPC       (Header redir missed pkt count)  0x00000000
+0x0280C: SRRCTL0     (Split and replic rx ctl0)       0x42000402
+0x0290C: SRRCTL1     (Split and replic rx ctl1)       0x42000402
+0x02A0C: SRRCTL2     (Split and replic rx ctl2)       0x42000402
+0x02B0C: SRRCTL3     (Split and replic rx ctl3)       0x42000402
+0x05480: PSRTYPE0    (Packet split receive type0)     0x0007FFFE
+0x05484: PSRTYPE1    (Packet split receive type1)     0x0007FFFE
+0x05488: PSRTYPE2    (Packet split receive type2)     0x0007FFFE
+0x0548C: PSRTYPE3    (Packet split receive type3)     0x0007FFFE
+0x02800: RDBAL0      (Rx desc base addr low0)         0x068B3000
+0x02900: RDBAL1      (Rx desc base addr low1)         0x068B6000
+0x02A00: RDBAL2      (Rx desc base addr low2)         0x068B9000
+0x02B00: RDBAL3      (Rx desc base addr low3)         0x0322B000
+0x02804: RDBAH0      (Rx desc base addr high0)        0x00000001
+0x02904: RDBAH1      (Rx desc base addr high1)        0x00000001
+0x02A04: RDBAH2      (Rx desc base addr high2)        0x00000001
+0x02B04: RDBAH3      (Rx desc base addr high3)        0x00000001
+0x02808: RDLEN0      (Rx descriptor length0)          0x00001000
+0x02908: RDLEN1      (Rx descriptor length1)          0x00001000
+0x02A08: RDLEN2      (Rx descriptor length2)          0x00001000
+0x02B08: RDLEN3      (Rx descriptor length3)          0x00001000
+0x02810: RDH0        (Rx descriptor head0)            0x0000000D
+0x02910: RDH1        (Rx descriptor head1)            0x00000000
+0x02A10: RDH2        (Rx descriptor head2)            0x00000000
+0x02B10: RDH3        (Rx descriptor head3)            0x00000001
+0x02818: RDT0        (Rx descriptor tail0)            0x0000000C
+0x02918: RDT1        (Rx descriptor tail1)            0x000000FF
+0x02A18: RDT2        (Rx descriptor tail2)            0x000000FF
+0x02B18: RDT3        (Rx descriptor tail3)            0x00000000
+0x02828: RXDCTL0     (Rx descriptor control0)         0x02040808
+0x02928: RXDCTL1     (Rx descriptor control1)         0x02040808
+0x02A28: RXDCTL2     (Rx descriptor control2)         0x02040808
+0x02B28: RXDCTL3     (Rx descriptor control3)         0x02040808
+0x01680: EITR0       (Interrupt throttle0)            0x00000000
+0x01684: EITR1       (Interrupt throttle1)            0x000000C4
+0x01688: EITR2       (Interrupt throttle2)            0x000000C4
+0x0168C: EITR3       (Interrupt throttle3)            0x000003D4
+0x01690: EITR4       (Interrupt throttle4)            0x000000C4
+0x01694: EITR5       (Interrupt throttle5)            0x000003D4
+0x01698: EITR6       (Interrupt throttle6)            0x000000C4
+0x0169C: EITR7       (Interrupt throttle7)            0x000000C4
+0x016A0: EITR8       (Interrupt throttle8)            0x000000C4
+0x016A4: EITR9       (Interrupt throttle9)            0x00000000
+0x05A80: IMIR0       (Immediate interrupt Rx0)        0x00000000
+0x05A84: IMIR1       (Immediate interrupt Rx1)        0x00000000
+0x05A88: IMIR2       (Immediate interrupt Rx2)        0x00000000
+0x05A8C: IMIR3       (Immediate interrupt Rx3)        0x00000000
+0x05A90: IMIR4       (Immediate interrupt Rx4)        0x00000000
+0x05A94: IMIR5       (Immediate interrupt Rx5)        0x00000000
+0x05A98: IMIR6       (Immediate interrupt Rx6)        0x00000000
+0x05A9C: IMIR7       (Immediate interrupt Rx7)        0x00000000
+0x05AA0: IMIREXT0    (Immediate interr Rx extended0)  0x00000000
+0x05AA4: IMIREXT1    (Immediate interr Rx extended1)  0x00000000
+0x05AA8: IMIREXT2    (Immediate interr Rx extended2)  0x00000000
+0x05AAC: IMIREXT3    (Immediate interr Rx extended3)  0x00000000
+0x05AB0: IMIREXT4    (Immediate interr Rx extended4)  0x00000000
+0x05AB4: IMIREXT5    (Immediate interr Rx extended5)  0x00000000
+0x05AB8: IMIREXT6    (Immediate interr Rx extended6)  0x00000000
+0x05ABC: IMIREXT7    (Immediate interr Rx extended7)  0x00000000
+0x05400: RAL00       (Receive address low00)          0x7A7AC40C
+0x05408: RAL01       (Receive address low01)          0x00000000
+0x05410: RAL02       (Receive address low02)          0x00000000
+0x05418: RAL03       (Receive address low03)          0x00000000
+0x05420: RAL04       (Receive address low04)          0x00000000
+0x05428: RAL05       (Receive address low05)          0x00000000
+0x05430: RAL06       (Receive address low06)          0x00000000
+0x05438: RAL07       (Receive address low07)          0x00000000
+0x05440: RAL08       (Receive address low08)          0x00000000
+0x05448: RAL09       (Receive address low09)          0x00000000
+0x05450: RAL10       (Receive address low10)          0x00000000
+0x05458: RAL11       (Receive address low11)          0x00000000
+0x05460: RAL12       (Receive address low12)          0x00000000
+0x05468: RAL13       (Receive address low13)          0x00000000
+0x05470: RAL14       (Receive address low14)          0x00000000
+0x05478: RAL15       (Receive address low15)          0x00000000
+0x05404: RAH00       (Receive address high00)         0x8004CD56
+0x0540C: RAH01       (Receive address high01)         0x00000000
+0x05414: RAH02       (Receive address high02)         0x00000000
+0x0541C: RAH03       (Receive address high03)         0x00000000
+0x05424: RAH04       (Receive address high04)         0x00000000
+0x0542C: RAH05       (Receive address high05)         0x00000000
+0x05434: RAH06       (Receive address high06)         0x00000000
+0x0543C: RAH07       (Receive address high07)         0x00000000
+0x05444: RAH08       (Receive address high08)         0x00000000
+0x0544C: RAH09       (Receive address high09)         0x00000000
+0x05454: RAH10       (Receive address high10)         0x00000000
+0x0545C: RAH11       (Receive address high11)         0x00000000
+0x05464: RAH12       (Receive address high12)         0x00000000
+0x0546C: RAH13       (Receive address high13)         0x00000000
+0x05474: RAH14       (Receive address high14)         0x00000000
+0x0547C: RAH15       (Receive address high15)         0x00000000
+0x03800: TDBAL0      (Tx desc base address low0)      0x0349D000
+0x03900: TDBAL1      (Tx desc base address low1)      0x075E2000
+0x03A00: TDBAL2      (Tx desc base address low2)      0x075E7000
+0x03B00: TDBAL3      (Tx desc base address low3)      0x075EC000
+0x03804: TDBAH0      (Tx desc base address high0)     0x00000001
+0x03904: TDBAH1      (Tx desc base address high1)     0x00000001
+0x03A04: TDBAH2      (Tx desc base address high2)     0x00000001
+0x03B04: TDBAH3      (Tx desc base address high3)     0x00000001
+0x03808: TDLEN0      (Tx descriptor length0)          0x00001000
+0x03908: TDLEN1      (Tx descriptor length1)          0x00001000
+0x03A08: TDLEN2      (Tx descriptor length2)          0x00001000
+0x03B08: TDLEN3      (Tx descriptor length3)          0x00001000
+0x03810: TDH0        (Transmit descriptor head0)      0x00000000
+0x03910: TDH1        (Transmit descriptor head1)      0x00000008
+0x03A10: TDH2        (Transmit descriptor head2)      0x00000000
+0x03B10: TDH3        (Transmit descriptor head3)      0x00000000
+0x03818: TDT0        (Transmit descriptor tail0)      0x00000000
+0x03918: TDT1        (Transmit descriptor tail1)      0x00000008
+0x03A18: TDT2        (Transmit descriptor tail2)      0x00000000
+0x03B18: TDT3        (Transmit descriptor tail3)      0x00000000
+0x03828: TXDCTL0     (Transmit descriptor control0)   0x02100108
+0x03928: TXDCTL1     (Transmit descriptor control1)   0x02100108
+0x03A28: TXDCTL2     (Transmit descriptor control2)   0x02100108
+0x03B28: TXDCTL3     (Transmit descriptor control3)   0x02100108
+0x03838: TDWBAL0     (Tx desc complete wb addr low0)  0x00000000
+0x03938: TDWBAL1     (Tx desc complete wb addr low1)  0x00000000
+0x03A38: TDWBAL2     (Tx desc complete wb addr low2)  0x00000000
+0x03B38: TDWBAL3     (Tx desc complete wb addr low3)  0x00000000
+0x0383C: TDWBAH0     (Tx desc complete wb addr hi0)   0x00000000
+0x0393C: TDWBAH1     (Tx desc complete wb addr hi1)   0x00000000
+0x03A3C: TDWBAH2     (Tx desc complete wb addr hi2)   0x00000000
+0x03B3C: TDWBAH3     (Tx desc complete wb addr hi3)   0x00000000
+0x03814: DCA_TXCTRL0 (Tx DCA control0)                0x00002A00
+0x03914: DCA_TXCTRL1 (Tx DCA control1)                0x00002A00
+0x03A14: DCA_TXCTRL2 (Tx DCA control2)                0x00002A00
+0x03B14: DCA_TXCTRL3 (Tx DCA control3)                0x00002A00
+0x05840: IP4AT0      (IPv4 address table0)            0x00000000
+0x05848: IP4AT1      (IPv4 address table1)            0x00000000
+0x05850: IP4AT2      (IPv4 address table2)            0x00000000
+0x05858: IP4AT3      (IPv4 address table3)            0x00000000
+0x05880: IP6AT0      (IPv6 address table0)            0x00000000
+0x05884: IP6AT1      (IPv6 address table1)            0x00000000
+0x05888: IP6AT2      (IPv6 address table2)            0x00000000
+0x0588C: IP6AT3      (IPv6 address table3)            0x00000000
+0x05A00: WUPM00      (Wake up packet memory00)        0x7A7AC40C
+0x05A04: WUPM01      (Wake up packet memory01)        0x36A0CD56
+0x05A08: WUPM02      (Wake up packet memory02)        0x7ADA1F9F
+0x05A0C: WUPM03      (Wake up packet memory03)        0x01000608
+0x05A10: WUPM04      (Wake up packet memory04)        0x04060008
+0x05A14: WUPM05      (Wake up packet memory05)        0x36A00200
+0x05A18: WUPM06      (Wake up packet memory06)        0x7ADA1F9F
+0x05A1C: WUPM07      (Wake up packet memory07)        0xD60AA8C0
+0x05A20: WUPM08      (Wake up packet memory08)        0x7A7AC40C
+0x05A24: WUPM09      (Wake up packet memory09)        0xA8C0CD56
+0x05A28: WUPM10      (Wake up packet memory10)        0x0000CA0A
+0x05A2C: WUPM11      (Wake up packet memory11)        0x00000000
+0x05A30: WUPM12      (Wake up packet memory12)        0x00000000
+0x05A34: WUPM13      (Wake up packet memory13)        0x00000000
+0x05A38: WUPM14      (Wake up packet memory14)        0x00000000
+0x05A3C: WUPM15      (Wake up packet memory15)        0x67075AA1
+0x05A40: WUPM16      (Wake up packet memory16)        0xC0000040
+0x05A44: WUPM17      (Wake up packet memory17)        0x00000001
+0x05A48: WUPM18      (Wake up packet memory18)        0x21201F1E
+0x05A4C: WUPM19      (Wake up packet memory19)        0x25242322
+0x05A50: WUPM20      (Wake up packet memory20)        0x29282726
+0x05A54: WUPM21      (Wake up packet memory21)        0x2D2C2B2A
+0x05A58: WUPM22      (Wake up packet memory22)        0x31302F2E
+0x05A5C: WUPM23      (Wake up packet memory23)        0x35343332
+0x05A60: WUPM24      (Wake up packet memory24)        0x78173736
+0x05A64: WUPM25      (Wake up packet memory25)        0x0066E1FF
+0x05A68: WUPM26      (Wake up packet memory26)        0xC0020066
+0x05A6C: WUPM27      (Wake up packet memory27)        0x00000001
+0x05A70: WUPM28      (Wake up packet memory28)        0x00000001
+0x05A74: WUPM29      (Wake up packet memory29)        0xC0040078
+0x05A78: WUPM30      (Wake up packet memory30)        0x31D60AA8
+0x05A7C: WUPM31      (Wake up packet memory31)        0x7FA2B947
+0x09000: FFMT000     (Flexible filter mask table000)  0x00000000
+0x09008: FFMT001     (Flexible filter mask table001)  0x00000000
+0x09010: FFMT002     (Flexible filter mask table002)  0x00000000
+0x09018: FFMT003     (Flexible filter mask table003)  0x00000000
+0x09020: FFMT004     (Flexible filter mask table004)  0x00000000
+0x09028: FFMT005     (Flexible filter mask table005)  0x00000000
+0x09030: FFMT006     (Flexible filter mask table006)  0x00000000
+0x09038: FFMT007     (Flexible filter mask table007)  0x00000000
+0x09040: FFMT008     (Flexible filter mask table008)  0x00000000
+0x09048: FFMT009     (Flexible filter mask table009)  0x00000000
+0x09050: FFMT010     (Flexible filter mask table010)  0x00000000
+0x09058: FFMT011     (Flexible filter mask table011)  0x00000000
+0x09060: FFMT012     (Flexible filter mask table012)  0x00000000
+0x09068: FFMT013     (Flexible filter mask table013)  0x00000000
+0x09070: FFMT014     (Flexible filter mask table014)  0x00000000
+0x09078: FFMT015     (Flexible filter mask table015)  0x00000000
+0x09080: FFMT016     (Flexible filter mask table016)  0x00000000
+0x09088: FFMT017     (Flexible filter mask table017)  0x00000000
+0x09090: FFMT018     (Flexible filter mask table018)  0x00000000
+0x09098: FFMT019     (Flexible filter mask table019)  0x00000000
+0x090A0: FFMT020     (Flexible filter mask table020)  0x00000000
+0x090A8: FFMT021     (Flexible filter mask table021)  0x00000000
+0x090B0: FFMT022     (Flexible filter mask table022)  0x00000000
+0x090B8: FFMT023     (Flexible filter mask table023)  0x00000000
+0x090C0: FFMT024     (Flexible filter mask table024)  0x00000000
+0x090C8: FFMT025     (Flexible filter mask table025)  0x00000000
+0x090D0: FFMT026     (Flexible filter mask table026)  0x00000000
+0x090D8: FFMT027     (Flexible filter mask table027)  0x00000000
+0x090E0: FFMT028     (Flexible filter mask table028)  0x00000000
+0x090E8: FFMT029     (Flexible filter mask table029)  0x00000000
+0x090F0: FFMT030     (Flexible filter mask table030)  0x00000000
+0x090F8: FFMT031     (Flexible filter mask table031)  0x00000000
+0x09100: FFMT032     (Flexible filter mask table032)  0x00000000
+0x09108: FFMT033     (Flexible filter mask table033)  0x00000000
+0x09110: FFMT034     (Flexible filter mask table034)  0x00000000
+0x09118: FFMT035     (Flexible filter mask table035)  0x00000000
+0x09120: FFMT036     (Flexible filter mask table036)  0x00000000
+0x09128: FFMT037     (Flexible filter mask table037)  0x00000000
+0x09130: FFMT038     (Flexible filter mask table038)  0x00000000
+0x09138: FFMT039     (Flexible filter mask table039)  0x00000000
+0x09140: FFMT040     (Flexible filter mask table040)  0x00000000
+0x09148: FFMT041     (Flexible filter mask table041)  0x00000000
+0x09150: FFMT042     (Flexible filter mask table042)  0x00000000
+0x09158: FFMT043     (Flexible filter mask table043)  0x00000000
+0x09160: FFMT044     (Flexible filter mask table044)  0x00000000
+0x09168: FFMT045     (Flexible filter mask table045)  0x00000000
+0x09170: FFMT046     (Flexible filter mask table046)  0x00000000
+0x09178: FFMT047     (Flexible filter mask table047)  0x00000000
+0x09180: FFMT048     (Flexible filter mask table048)  0x00000000
+0x09188: FFMT049     (Flexible filter mask table049)  0x00000000
+0x09190: FFMT050     (Flexible filter mask table050)  0x00000000
+0x09198: FFMT051     (Flexible filter mask table051)  0x00000000
+0x091A0: FFMT052     (Flexible filter mask table052)  0x00000000
+0x091A8: FFMT053     (Flexible filter mask table053)  0x00000000
+0x091B0: FFMT054     (Flexible filter mask table054)  0x00000000
+0x091B8: FFMT055     (Flexible filter mask table055)  0x00000000
+0x091C0: FFMT056     (Flexible filter mask table056)  0x00000000
+0x091C8: FFMT057     (Flexible filter mask table057)  0x00000000
+0x091D0: FFMT058     (Flexible filter mask table058)  0x00000000
+0x091D8: FFMT059     (Flexible filter mask table059)  0x00000000
+0x091E0: FFMT060     (Flexible filter mask table060)  0x00000000
+0x091E8: FFMT061     (Flexible filter mask table061)  0x00000000
+0x091F0: FFMT062     (Flexible filter mask table062)  0x00000000
+0x091F8: FFMT063     (Flexible filter mask table063)  0x00000000
+0x09200: FFMT064     (Flexible filter mask table064)  0x00000000
+0x09208: FFMT065     (Flexible filter mask table065)  0x00000000
+0x09210: FFMT066     (Flexible filter mask table066)  0x00000000
+0x09218: FFMT067     (Flexible filter mask table067)  0x00000000
+0x09220: FFMT068     (Flexible filter mask table068)  0x00000000
+0x09228: FFMT069     (Flexible filter mask table069)  0x00000000
+0x09230: FFMT070     (Flexible filter mask table070)  0x00000000
+0x09238: FFMT071     (Flexible filter mask table071)  0x00000000
+0x09240: FFMT072     (Flexible filter mask table072)  0x00000000
+0x09248: FFMT073     (Flexible filter mask table073)  0x00000000
+0x09250: FFMT074     (Flexible filter mask table074)  0x00000000
+0x09258: FFMT075     (Flexible filter mask table075)  0x00000000
+0x09260: FFMT076     (Flexible filter mask table076)  0x00000000
+0x09268: FFMT077     (Flexible filter mask table077)  0x00000000
+0x09270: FFMT078     (Flexible filter mask table078)  0x00000000
+0x09278: FFMT079     (Flexible filter mask table079)  0x00000000
+0x09280: FFMT080     (Flexible filter mask table080)  0x00000000
+0x09288: FFMT081     (Flexible filter mask table081)  0x00000000
+0x09290: FFMT082     (Flexible filter mask table082)  0x00000000
+0x09298: FFMT083     (Flexible filter mask table083)  0x00000000
+0x092A0: FFMT084     (Flexible filter mask table084)  0x00000000
+0x092A8: FFMT085     (Flexible filter mask table085)  0x00000000
+0x092B0: FFMT086     (Flexible filter mask table086)  0x00000000
+0x092B8: FFMT087     (Flexible filter mask table087)  0x00000000
+0x092C0: FFMT088     (Flexible filter mask table088)  0x00000000
+0x092C8: FFMT089     (Flexible filter mask table089)  0x00000000
+0x092D0: FFMT090     (Flexible filter mask table090)  0x00000000
+0x092D8: FFMT091     (Flexible filter mask table091)  0x00000000
+0x092E0: FFMT092     (Flexible filter mask table092)  0x00000000
+0x092E8: FFMT093     (Flexible filter mask table093)  0x00000000
+0x092F0: FFMT094     (Flexible filter mask table094)  0x00000000
+0x092F8: FFMT095     (Flexible filter mask table095)  0x00000000
+0x09300: FFMT096     (Flexible filter mask table096)  0x00000000
+0x09308: FFMT097     (Flexible filter mask table097)  0x00000000
+0x09310: FFMT098     (Flexible filter mask table098)  0x00000000
+0x09318: FFMT099     (Flexible filter mask table099)  0x00000000
+0x09320: FFMT100     (Flexible filter mask table100)  0x00000000
+0x09328: FFMT101     (Flexible filter mask table101)  0x00000000
+0x09330: FFMT102     (Flexible filter mask table102)  0x00000000
+0x09338: FFMT103     (Flexible filter mask table103)  0x00000000
+0x09340: FFMT104     (Flexible filter mask table104)  0x00000000
+0x09348: FFMT105     (Flexible filter mask table105)  0x00000000
+0x09350: FFMT106     (Flexible filter mask table106)  0x00000000
+0x09358: FFMT107     (Flexible filter mask table107)  0x00000000
+0x09360: FFMT108     (Flexible filter mask table108)  0x00000000
+0x09368: FFMT109     (Flexible filter mask table109)  0x00000000
+0x09370: FFMT110     (Flexible filter mask table110)  0x00000000
+0x09378: FFMT111     (Flexible filter mask table111)  0x00000000
+0x09380: FFMT112     (Flexible filter mask table112)  0x00000000
+0x09388: FFMT113     (Flexible filter mask table113)  0x00000000
+0x09390: FFMT114     (Flexible filter mask table114)  0x00000000
+0x09398: FFMT115     (Flexible filter mask table115)  0x00000000
+0x093A0: FFMT116     (Flexible filter mask table116)  0x00000000
+0x093A8: FFMT117     (Flexible filter mask table117)  0x00000000
+0x093B0: FFMT118     (Flexible filter mask table118)  0x00000000
+0x093B8: FFMT119     (Flexible filter mask table119)  0x00000000
+0x093C0: FFMT120     (Flexible filter mask table120)  0x00000000
+0x093C8: FFMT121     (Flexible filter mask table121)  0x00000000
+0x093D0: FFMT122     (Flexible filter mask table122)  0x00000000
+0x093D8: FFMT123     (Flexible filter mask table123)  0x00000000
+0x093E0: FFMT124     (Flexible filter mask table124)  0x00000000
+0x093E8: FFMT125     (Flexible filter mask table125)  0x00000000
+0x093F0: FFMT126     (Flexible filter mask table126)  0x00000000
+0x093F8: FFMT127     (Flexible filter mask table127)  0x00000000
+0x09800: FFVT000     (Flexible filter value table000) 0x00000000
+0x09808: FFVT001     (Flexible filter value table001) 0x00000000
+0x09810: FFVT002     (Flexible filter value table002) 0x00000000
+0x09818: FFVT003     (Flexible filter value table003) 0x00000000
+0x09820: FFVT004     (Flexible filter value table004) 0x00000000
+0x09828: FFVT005     (Flexible filter value table005) 0x00000000
+0x09830: FFVT006     (Flexible filter value table006) 0x00000000
+0x09838: FFVT007     (Flexible filter value table007) 0x00000000
+0x09840: FFVT008     (Flexible filter value table008) 0x00000000
+0x09848: FFVT009     (Flexible filter value table009) 0x00000000
+0x09850: FFVT010     (Flexible filter value table010) 0x00000000
+0x09858: FFVT011     (Flexible filter value table011) 0x00000000
+0x09860: FFVT012     (Flexible filter value table012) 0x00000000
+0x09868: FFVT013     (Flexible filter value table013) 0x00000000
+0x09870: FFVT014     (Flexible filter value table014) 0x00000000
+0x09878: FFVT015     (Flexible filter value table015) 0x00000000
+0x09880: FFVT016     (Flexible filter value table016) 0x00000000
+0x09888: FFVT017     (Flexible filter value table017) 0x00000000
+0x09890: FFVT018     (Flexible filter value table018) 0x00000000
+0x09898: FFVT019     (Flexible filter value table019) 0x00000000
+0x098A0: FFVT020     (Flexible filter value table020) 0x00000000
+0x098A8: FFVT021     (Flexible filter value table021) 0x00000000
+0x098B0: FFVT022     (Flexible filter value table022) 0x00000000
+0x098B8: FFVT023     (Flexible filter value table023) 0x00000000
+0x098C0: FFVT024     (Flexible filter value table024) 0x00000000
+0x098C8: FFVT025     (Flexible filter value table025) 0x00000000
+0x098D0: FFVT026     (Flexible filter value table026) 0x00000000
+0x098D8: FFVT027     (Flexible filter value table027) 0x00000000
+0x098E0: FFVT028     (Flexible filter value table028) 0x00000000
+0x098E8: FFVT029     (Flexible filter value table029) 0x00000000
+0x098F0: FFVT030     (Flexible filter value table030) 0x00000000
+0x098F8: FFVT031     (Flexible filter value table031) 0x00000000
+0x09900: FFVT032     (Flexible filter value table032) 0x00000000
+0x09908: FFVT033     (Flexible filter value table033) 0x00000000
+0x09910: FFVT034     (Flexible filter value table034) 0x00000000
+0x09918: FFVT035     (Flexible filter value table035) 0x00000000
+0x09920: FFVT036     (Flexible filter value table036) 0x00000000
+0x09928: FFVT037     (Flexible filter value table037) 0x00000000
+0x09930: FFVT038     (Flexible filter value table038) 0x00000000
+0x09938: FFVT039     (Flexible filter value table039) 0x00000000
+0x09940: FFVT040     (Flexible filter value table040) 0x00000000
+0x09948: FFVT041     (Flexible filter value table041) 0x00000000
+0x09950: FFVT042     (Flexible filter value table042) 0x00000000
+0x09958: FFVT043     (Flexible filter value table043) 0x00000000
+0x09960: FFVT044     (Flexible filter value table044) 0x00000000
+0x09968: FFVT045     (Flexible filter value table045) 0x00000000
+0x09970: FFVT046     (Flexible filter value table046) 0x00000000
+0x09978: FFVT047     (Flexible filter value table047) 0x00000000
+0x09980: FFVT048     (Flexible filter value table048) 0x00000000
+0x09988: FFVT049     (Flexible filter value table049) 0x00000000
+0x09990: FFVT050     (Flexible filter value table050) 0x00000000
+0x09998: FFVT051     (Flexible filter value table051) 0x00000000
+0x099A0: FFVT052     (Flexible filter value table052) 0x00000000
+0x099A8: FFVT053     (Flexible filter value table053) 0x00000000
+0x099B0: FFVT054     (Flexible filter value table054) 0x00000000
+0x099B8: FFVT055     (Flexible filter value table055) 0x00000000
+0x099C0: FFVT056     (Flexible filter value table056) 0x00000000
+0x099C8: FFVT057     (Flexible filter value table057) 0x00000000
+0x099D0: FFVT058     (Flexible filter value table058) 0x00000000
+0x099D8: FFVT059     (Flexible filter value table059) 0x00000000
+0x099E0: FFVT060     (Flexible filter value table060) 0x00000000
+0x099E8: FFVT061     (Flexible filter value table061) 0x00000000
+0x099F0: FFVT062     (Flexible filter value table062) 0x00000000
+0x099F8: FFVT063     (Flexible filter value table063) 0x00000000
+0x09A00: FFVT064     (Flexible filter value table064) 0x00000000
+0x09A08: FFVT065     (Flexible filter value table065) 0x00000000
+0x09A10: FFVT066     (Flexible filter value table066) 0x00000000
+0x09A18: FFVT067     (Flexible filter value table067) 0x00000000
+0x09A20: FFVT068     (Flexible filter value table068) 0x00000000
+0x09A28: FFVT069     (Flexible filter value table069) 0x00000000
+0x09A30: FFVT070     (Flexible filter value table070) 0x00000000
+0x09A38: FFVT071     (Flexible filter value table071) 0x00000000
+0x09A40: FFVT072     (Flexible filter value table072) 0x00000000
+0x09A48: FFVT073     (Flexible filter value table073) 0x00000000
+0x09A50: FFVT074     (Flexible filter value table074) 0x00000000
+0x09A58: FFVT075     (Flexible filter value table075) 0x00000000
+0x09A60: FFVT076     (Flexible filter value table076) 0x00000000
+0x09A68: FFVT077     (Flexible filter value table077) 0x00000000
+0x09A70: FFVT078     (Flexible filter value table078) 0x00000000
+0x09A78: FFVT079     (Flexible filter value table079) 0x00000000
+0x09A80: FFVT080     (Flexible filter value table080) 0x00000000
+0x09A88: FFVT081     (Flexible filter value table081) 0x00000000
+0x09A90: FFVT082     (Flexible filter value table082) 0x00000000
+0x09A98: FFVT083     (Flexible filter value table083) 0x00000000
+0x09AA0: FFVT084     (Flexible filter value table084) 0x00000000
+0x09AA8: FFVT085     (Flexible filter value table085) 0x00000000
+0x09AB0: FFVT086     (Flexible filter value table086) 0x00000000
+0x09AB8: FFVT087     (Flexible filter value table087) 0x00000000
+0x09AC0: FFVT088     (Flexible filter value table088) 0x00000000
+0x09AC8: FFVT089     (Flexible filter value table089) 0x00000000
+0x09AD0: FFVT090     (Flexible filter value table090) 0x00000000
+0x09AD8: FFVT091     (Flexible filter value table091) 0x00000000
+0x09AE0: FFVT092     (Flexible filter value table092) 0x00000000
+0x09AE8: FFVT093     (Flexible filter value table093) 0x00000000
+0x09AF0: FFVT094     (Flexible filter value table094) 0x00000000
+0x09AF8: FFVT095     (Flexible filter value table095) 0x00000000
+0x09B00: FFVT096     (Flexible filter value table096) 0x00000000
+0x09B08: FFVT097     (Flexible filter value table097) 0x00000000
+0x09B10: FFVT098     (Flexible filter value table098) 0x00000000
+0x09B18: FFVT099     (Flexible filter value table099) 0x00000000
+0x09B20: FFVT100     (Flexible filter value table100) 0x00000000
+0x09B28: FFVT101     (Flexible filter value table101) 0x00000000
+0x09B30: FFVT102     (Flexible filter value table102) 0x00000000
+0x09B38: FFVT103     (Flexible filter value table103) 0x00000000
+0x09B40: FFVT104     (Flexible filter value table104) 0x00000000
+0x09B48: FFVT105     (Flexible filter value table105) 0x00000000
+0x09B50: FFVT106     (Flexible filter value table106) 0x00000000
+0x09B58: FFVT107     (Flexible filter value table107) 0x00000000
+0x09B60: FFVT108     (Flexible filter value table108) 0x00000000
+0x09B68: FFVT109     (Flexible filter value table109) 0x00000000
+0x09B70: FFVT110     (Flexible filter value table110) 0x00000000
+0x09B78: FFVT111     (Flexible filter value table111) 0x00000000
+0x09B80: FFVT112     (Flexible filter value table112) 0x00000000
+0x09B88: FFVT113     (Flexible filter value table113) 0x00000000
+0x09B90: FFVT114     (Flexible filter value table114) 0x00000000
+0x09B98: FFVT115     (Flexible filter value table115) 0x00000000
+0x09BA0: FFVT116     (Flexible filter value table116) 0x00000000
+0x09BA8: FFVT117     (Flexible filter value table117) 0x00000000
+0x09BB0: FFVT118     (Flexible filter value table118) 0x00000000
+0x09BB8: FFVT119     (Flexible filter value table119) 0x00000000
+0x09BC0: FFVT120     (Flexible filter value table120) 0x00000000
+0x09BC8: FFVT121     (Flexible filter value table121) 0x00000000
+0x09BD0: FFVT122     (Flexible filter value table122) 0x00000000
+0x09BD8: FFVT123     (Flexible filter value table123) 0x00000000
+0x09BE0: FFVT124     (Flexible filter value table124) 0x00000000
+0x09BE8: FFVT125     (Flexible filter value table125) 0x00000000
+0x09BF0: FFVT126     (Flexible filter value table126) 0x00000000
+0x09BF8: FFVT127     (Flexible filter value table127) 0x00000000
+0x05F00: FFLT0       (Flexible filter length table0)  0x00000000
+0x05F08: FFLT1       (Flexible filter length table1)  0x00000000
+0x05F10: FFLT2       (Flexible filter length table2)  0x00000000
+0x05F18: FFLT3       (Flexible filter length table3)  0x00000000
+0x03410: TDFH        (Tx data FIFO head)              0x000003A4
+0x03418: TDFT        (Tx data FIFO tail)              0x000003A4
+0x03420: TDFHS       (Tx data FIFO head saved)        0x000003A4
+0x03430: TDFPC       (Tx data FIFO packet count)      0x00000000
+0x05BF4: RR2DCDELAY  (Max. DMA read delay)            0x00000000
