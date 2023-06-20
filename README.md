@@ -337,6 +337,13 @@ https://www.intel.com/content/dam/www/public/us/en/documents/datasheets/ethernet
 
 - Broadcom NetXtreme BCM5751 (tg3) https://docs.broadcom.com/doc/1211168564147
 
+## ボードメーカー解説
+
+- Intel Ethernet Controller X710/XL710 (40GbE) Linux Performance Tuning Guide
+https://cdrdv2-public.intel.com/334019/xl710-x710-performance-tuning-linux-guide.pdf
+- Intel Ethernet 800 Series (100GbE) Linux Performance Tuning Guide
+https://cdrdv2-public.intel.com/636781/800%20Series%20Linux%20Performance%20Tuning%20Guide_Rev1.1.pdf
+
 ## 解説URLメモ
 
 - https://blog.packagecloud.io/monitoring-tuning-linux-networking-stack-receiving-data/
