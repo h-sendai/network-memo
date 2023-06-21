@@ -361,6 +361,17 @@ https://network.nvidia.com/products/infiniband-drivers/linux/mlnx_ofed/
 
 ## CPUコア、キャッシュ共有状態の取得
 
+hwloc-lsコマンドでCPU番号の割り振りとL1, L2, L3キャッシュの
+共有状態についてまとめたテキストデータが取得できる。
+lstopoコマンドを使うと画像データとして視覚的に
+表現したものが得られる。
+AlmaLinuxではそれぞれhwlocパッケージ、hwloc-guiパッケージに
+入っている。
+
+CPUキャッシュの共有状態については
+``/sys/devices/system/cpu/cpuN/cache/indexM/shared_cpu_list``
+(N, Mにはそれぞれ整数値が入る)をみてもわかる。
+
 ## iperf2
 
 [Intel Ethernet 800 Series Linux Performance Tuning Guide](https://www.intel.co.jp/content/www/jp/ja/support/articles/000088688/ethernet-products/800-series-network-adapters-up-to-100gbe.html)には
@@ -386,6 +397,20 @@ iperf -i 1 -e -c remote
 ``/proc/interrupts``は横に長いので``less -S /proc/interrupts``として
 端末に表示しきれないところはチョップするのがいいかもしれない。右の
 ほうをみるには右矢印キーを使う。
+
+各IRQを処理するCPU番号は
+``/proc/irq/<IRQ番号>/smp_affinity_list``
+をみればわかる。担当CPUを変更するにはこのファイルに
+echoコマンドで整数値をかけばよい。
+
+デフォルトではirqbalanceデーモンが起動していて
+デフォルトでは10秒に1回、
+各CPUの各割り込み処理回数を平均化する処理をしている。
+手動でCPU番号を指定する場合にはirqbalanceで上書き
+されないようにirqbalanceを停止しておく。停止するコマンドは
+```
+systemctl stop irqbalance
+```
 
 ## ネットワークインターフェイスデータシート
 
