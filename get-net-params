@@ -1,0 +1,78 @@
+#!/bin/sh
+
+# set -e
+
+progpath=$0
+progname=$(basename $progpath)
+
+usage()
+{
+   echo Usage: $progname
+   echo 
+}
+
+
+TEMP=`getopt -o h --long help -n "$progname" -- "$@"`
+
+eval set -- "$TEMP"
+
+while true ; do
+    case "$1" in
+        --help) usage; exit 0 ;;
+        -h)     usage; exit 0 ;;
+        --) shift ; break ;;
+        *) echo "Internal error!" ; exit 1 ;;
+    esac
+done
+
+if [ x$(uname -s) = "xLinux" ]; then
+    echo "# TCP Receive buffer Setting"
+    echo "#"
+    echo -n "# Date:     "
+    date
+    echo -n "# Hostname: "
+    hostname
+    echo -n "# Kernel:   "
+    uname -a
+    echo "#"
+    echo "# Current Values:"
+    echo "#"
+    proc_file_list=$(sed -e '1,/^__DATA__/d' $progpath | sed -e '/^#/d')
+    for p in $proc_file_list; do
+        #echo -n "# $p "
+        printf '# %-40s ' $p
+        cat $p | expand -t 1
+    done
+    echo "#"
+    echo "# To set these values, feed following command to /bin/sh"
+    echo "#"
+    for p in $proc_file_list; do
+        echo -n "#echo "
+        cat $p | tr -d '\n'
+        echo " > $p"
+    done
+    echo "#"
+    echo "# To Change max values:"
+    echo "#"
+    echo 'max=$((1024*1024*1024))'
+    echo 'echo $max > /proc/sys/net/core/wmem_max'
+    echo 'echo $max > /proc/sys/net/core/rmem_max'
+    set $(cat /proc/sys/net/ipv4/tcp_rmem)
+    echo "echo $1 $2 \$max > /proc/sys/net/ipv4/tcp_rmem"
+    set $(cat /proc/sys/net/ipv4/tcp_wmem)
+    echo "echo $1 $2 \$max > /proc/sys/net/ipv4/tcp_wmem"
+fi
+
+# do not remove following exit to use __DATA__ section
+exit
+
+__DATA__
+/proc/sys/net/ipv4/tcp_window_scaling
+/proc/sys/net/ipv4/tcp_timestamps
+/proc/sys/net/ipv4/tcp_moderate_rcvbuf
+/proc/sys/net/core/wmem_max
+/proc/sys/net/core/rmem_max
+/proc/sys/net/core/wmem_default
+/proc/sys/net/core/rmem_default
+/proc/sys/net/ipv4/tcp_rmem
+/proc/sys/net/ipv4/tcp_wmem
