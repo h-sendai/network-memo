@@ -421,16 +421,18 @@ https://sourceforge.net/projects/e1000/files/8257x%20Developer%20Manual/Revision
 - Intel I350 Controller データシート (Linuxではドライバ名igbのもの)
 https://www.intel.com/content/dam/www/public/us/en/documents/datasheets/ethernet-controller-i350-datasheet.pdf
 - Intel 10GbE Controller X710 データシート https://www.intel.com/content/www/us/en/content-details/332464/intel-ethernet-controller-x710-xxv710-xl710-datasheet.html
-- Intel 40GbE (i40e) Linux Performance tuning guide https://www.intel.com/content/www/us/en/content-details/334019/intel-ethernet-controller-x710-xl710-and-intel-ethernet-converged-network-adapter-x710-xl710-family-linux-performance-tuning-guide.html
-- Intel Ethernet 800 Series Linux Performance Tuning Guide (100GbE) https://www.intel.co.jp/content/www/jp/ja/support/articles/000088688/ethernet-products/800-series-network-adapters-up-to-100gbe.html
+
+
 
 - Broadcom NetXtreme BCM5751 (tg3) https://docs.broadcom.com/doc/1211168564147
 
 ## ボードメーカー解説
 
-- Intel Ethernet Controller X710/XL710 (40GbE) Linux Performance Tuning Guide
+- Intel 40GbE (i40e) Linux Performance tuning guide https://www.intel.com/content/www/us/en/content-details/334019/intel-ethernet-controller-x710-xl710-and-intel-ethernet-converged-network-adapter-x710-xl710-family-linux-performance-tuning-guide.html
+PDF: Ethernet Controller X710/XL710 (40GbE) Linux Performance Tuning Guide
 https://cdrdv2-public.intel.com/334019/xl710-x710-performance-tuning-linux-guide.pdf
-- Intel Ethernet 800 Series (100GbE) Linux Performance Tuning Guide
+- Intel Ethernet 800 Series Linux Performance Tuning Guide (100GbE) https://www.intel.co.jp/content/www/jp/ja/support/articles/000088688/ethernet-products/800-series-network-adapters-up-to-100gbe.html
+PDF:
 https://cdrdv2-public.intel.com/636781/800%20Series%20Linux%20Performance%20Tuning%20Guide_Rev1.1.pdf
 
 ## 解説URLメモ
