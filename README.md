@@ -185,6 +185,29 @@ flow controlはリンクパートナー側(スイッチに接続しているな�
 
 ### ethtool -c/-C
 
+ネットワークデバイス関連で結合(coalesce)の設定を行う。
+
+たとえばパケットがやってきてから割り込みを出すまでに遅延させる
+時間をマイクロ秒単位で指定するには
+
+```console
+% ethtool -C $nic rx-usecs 125
+```
+のようにする。指定する数値はマイクロ秒だが
+0 - 4の値は特別な意味となるドライバもある。
+
+例: e1000e (廉価版Intel 1 GbE)
+https://www.kernel.org/doc/Documentation/networking/e1000e.txt
+``ethtool -C $nic rx-usecs NNN``で設定する値は
+
+> InterruptThrottleRate
+>
+> Valid Range:   0,1,3,4,100-100000 (0=off, 1=dynamic, 3=dynamic conservative,
+>                                   4=simplified balancing)
+> Default Value: 3
+
+で0,1,3,4は単位がマイクロ秒の時間ではない。
+
 ### ethtool -U
 
 ```
