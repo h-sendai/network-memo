@@ -420,9 +420,8 @@ systemctl stop irqbalance
 https://sourceforge.net/projects/e1000/files/8257x%20Developer%20Manual/Revision%201.8/
 - Intel I350 Controller データシート (Linuxではドライバ名igbのもの)
 https://www.intel.com/content/dam/www/public/us/en/documents/datasheets/ethernet-controller-i350-datasheet.pdf
-- Intel 10GbE Controller X710 データシート https://www.intel.com/content/www/us/en/content-details/332464/intel-ethernet-controller-x710-xxv710-xl710-datasheet.html
-
-
+- Intel 82599 10 GbE Controllerデータシート (Linuxではドライバ名ixgbeのもの) https://cdrdv2-public.intel.com/331520/82599-datasheet-v3-4.pdf
+- Intel 40GbE Controller X710 データシート https://www.intel.com/content/www/us/en/content-details/332464/intel-ethernet-controller-x710-xxv710-xl710-datasheet.html
 
 - Broadcom NetXtreme BCM5751 (tg3) https://docs.broadcom.com/doc/1211168564147
 
