@@ -422,6 +422,8 @@ https://sourceforge.net/projects/e1000/files/8257x%20Developer%20Manual/Revision
 https://www.intel.com/content/dam/www/public/us/en/documents/datasheets/ethernet-controller-i350-datasheet.pdf
 - Intel 82599 10 GbE Controllerデータシート (Linuxではドライバ名ixgbeのもの) https://cdrdv2-public.intel.com/331520/82599-datasheet-v3-4.pdf
 - Intel 40GbE Controller X710 データシート https://www.intel.com/content/www/us/en/content-details/332464/intel-ethernet-controller-x710-xxv710-xl710-datasheet.html
+- NVIDIA Mellanox https://forums.developer.nvidia.com/t/is-there-a-programmers-guide-available-for-the-connextx-5-series-of-cards/206137 に
+"This document is only available for customers with a valid support contract."と書かれている。
 
 - Broadcom NetXtreme BCM5751 (tg3) https://docs.broadcom.com/doc/1211168564147
 
