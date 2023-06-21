@@ -322,6 +322,12 @@ NICにより、e1000e, igb, ixgbeはレジスタ名も表示されてわかり�
 
 ## ソケットレシーブバッファ
 
+``cat /proc/sys/net/ipv4/tcp_moderate_rcvbuf``が1なら
+ソケットレシーブバッファの自動調節機能が有効になっている。
+この場合の最小値、デフォルト値、最大値は
+受信: ``/proc/sys/net/ipv4/tcp_rmem``
+送信: ``/proc/sys/net/ipv4/tcp_wmem``にある3個の数値である。
+
 ## データ転送速度
 
 ## ドライバ
