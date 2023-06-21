@@ -310,6 +310,17 @@ rmgr: Cannot insert RX class rule: Invalid argument
 
 となる。
 
+### ethtool -S $nic
+
+``ethtool -S $nic``で統計情報がとれる。
+取得できる統計情報はNIC、ドライバによって異なる。
+``drop``、``buffer``、``miss``などの単語に注意する。
+
+統計情報は
+``/sys/class/net/$nic/statistics/rx_droped``その他でも
+取得することができる。どれが更新されるか、またいつ更新されるかは
+ドライバによる。
+
 ### ethtool -d $nic
 
 ``ethtool -d``でNICレジスタのダンプができる。出力結果は
@@ -411,6 +422,13 @@ echoコマンドで整数値をかけばよい。
 ```
 systemctl stop irqbalance
 ```
+
+``/proc/intterrupts``にはCPUコア毎に処理したハードウェア割り込みの
+回数が書かれている。1秒間に起きた回数を知りたい場合は1秒おきに読み、
+前の数字をおぼえておいて引き算するという作業が必要になる。
+
+ソフトウェア割り込み(softirq)の回数は
+``/proc/softirqs``に種類別に書かれている。
 
 ## ネットワークインターフェイスデータシート
 
