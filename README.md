@@ -339,6 +339,9 @@ Linuxソースに入っているもとの比べると
 ethtoolインターフェイスの実装がはいっていないようで
 ``ethtool -C $nic rx-usecs NNN``の設定はカーネルコマンドラインで
 指定するようだ。
+- NVIDIA Mellanox<br>
+https://network.nvidia.com/products/infiniband-drivers/linux/mlnx_ofed/
+から取得できる。使ったことはない。
 
 ## CPUコア、キャッシュ共有状態の取得
 
