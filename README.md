@@ -430,6 +430,16 @@ systemctl stop irqbalance
 ソフトウェア割り込み(softirq)の回数は
 ``/proc/softirqs``に種類別に書かれている。
 
+## softnet_stat
+
+``/proc/net/softnet_stat``にCPUごとの統計情報がのっている。
+
+- 各行CPUごとのデータ(CPUコアが8コアなら8行になっている)
+- 数値は全部16進数
+- 第1コラム: ``sd->processed``: 処理したパケット数(ToDo: パケットの単位)
+- 第2コラム: ``sd->dropped``: キューにあきがなくてドロップした数
+- 第3コラム: ``sd->time_squeeze``: net_rx_actionループがbudgetをくいつぶしたか、時間制限をこえたかで終了したしたがまだ処理できた回数。
+
 ## ネットワークインターフェイスデータシート
 
 ときどき改定されて下記URLからダウンロードできなくなっているかもしれない。
