@@ -563,3 +563,4 @@ https://cdrdv2-public.intel.com/636781/800%20Series%20Linux%20Performance%20Tuni
 - https://fasterdata.es.net/
 - https://blog.nishi.network/2020/08/26/Mellanox-100GbE-1/
 - https://blog.yuuk.io/entry/linux-networkstack-tuning-rfs
+- 10GbE時代のネットワークI/O高速化 https://speakerdeck.com/syuu1228/ogao-su-hua
