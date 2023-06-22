@@ -511,6 +511,8 @@ sched_setaffinity()でユーザープロセスをCPU #2で走らせたときの
 - mpstatのCPU 2のirq, softirqはTCP ack送信(?)
 - ``/proc/softirqs``のCPU2はユーザープロセスのソケットに
   データをくべているのが計上されている(?)。
+- ``/proc/softirqs``のCPU2と7以外のものは組織内LANに接続した
+  別NICが受信したパケットの処理。
 
 ## ネットワークインターフェイスデータシート
 
