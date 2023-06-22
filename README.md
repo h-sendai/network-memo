@@ -458,21 +458,6 @@ length 10136
 length 4344
 ```
 
-## ネットワークインターフェイスデータシート
-
-ときどき改定されて下記URLからダウンロードできなくなっているかもしれない。
-
-- Intel 8257x Contoller データシート (Linuxではドライバ名e1000eのもの)
-https://sourceforge.net/projects/e1000/files/8257x%20Developer%20Manual/Revision%201.8/
-- Intel I350 Controller データシート (Linuxではドライバ名igbのもの)
-https://www.intel.com/content/dam/www/public/us/en/documents/datasheets/ethernet-controller-i350-datasheet.pdf
-- Intel 82599 10 GbE Controllerデータシート (Linuxではドライバ名ixgbeのもの) https://cdrdv2-public.intel.com/331520/82599-datasheet-v3-4.pdf
-- Intel X550 10 GbE Controllerデータシート (Linuxではドライバixgbeのもの) https://cdrdv2-public.intel.com/333369/333369-X550_Datasheet_Rev2.6.pdf
-- Intel 40GbE Controller X710 データシート https://www.intel.com/content/www/us/en/content-details/332464/intel-ethernet-controller-x710-xxv710-xl710-datasheet.html
-- Broadcom NetXtreme BCM5751 (tg3) https://docs.broadcom.com/doc/1211168564147
-- NVIDIA Mellanox https://forums.developer.nvidia.com/t/is-there-a-programmers-guide-available-for-the-connextx-5-series-of-cards/206137 に
-"This document is only available for customers with a valid support contract."と書かれている。
-
 ## パケット処理の観察
 
 ### レジスタ
@@ -525,6 +510,21 @@ sched_setaffinity()でユーザープロセスをCPU #2で走らせたときの
 - mpstatのCPU 2のirq, softirqはTCP ack送信(?)
 - ``/proc/softirqs``のCPU2はユーザープロセスのソケットに
   データをくべているのが計上されている(?)。
+
+## ネットワークインターフェイスデータシート
+
+ときどき改定されて下記URLからダウンロードできなくなっているかもしれない。
+
+- Intel 8257x Contoller データシート (Linuxではドライバ名e1000eのもの)
+https://sourceforge.net/projects/e1000/files/8257x%20Developer%20Manual/Revision%201.8/
+- Intel I350 Controller データシート (Linuxではドライバ名igbのもの)
+https://www.intel.com/content/dam/www/public/us/en/documents/datasheets/ethernet-controller-i350-datasheet.pdf
+- Intel 82599 10 GbE Controllerデータシート (Linuxではドライバ名ixgbeのもの) https://cdrdv2-public.intel.com/331520/82599-datasheet-v3-4.pdf
+- Intel X550 10 GbE Controllerデータシート (Linuxではドライバixgbeのもの) https://cdrdv2-public.intel.com/333369/333369-X550_Datasheet_Rev2.6.pdf
+- Intel 40GbE Controller X710 データシート https://www.intel.com/content/www/us/en/content-details/332464/intel-ethernet-controller-x710-xxv710-xl710-datasheet.html
+- Broadcom NetXtreme BCM5751 (tg3) https://docs.broadcom.com/doc/1211168564147
+- NVIDIA Mellanox https://forums.developer.nvidia.com/t/is-there-a-programmers-guide-available-for-the-connextx-5-series-of-cards/206137 に
+"This document is only available for customers with a valid support contract."と書かれている。
 
 ## ボードメーカー解説
 
