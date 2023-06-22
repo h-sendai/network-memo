@@ -473,6 +473,59 @@ https://www.intel.com/content/dam/www/public/us/en/documents/datasheets/ethernet
 - NVIDIA Mellanox https://forums.developer.nvidia.com/t/is-there-a-programmers-guide-available-for-the-connextx-5-series-of-cards/206137 に
 "This document is only available for customers with a valid support contract."と書かれている。
 
+## パケット処理の観察
+
+### レジスタ
+[e1000eレジスタの観察](e1000e.md)
+
+### mpstat -P ALL 1と/proc/softirqsの出力
+
+CPUコア8個のPCでテスト。10GbE (Intel ixgbe)を使用。
+データはポート1234からやってくる。
+
+```
+sudo ethtool -U texp0 flow-type tcp4 src-port 1234 action 7
+```
+でポート1234からのデータをqueue #7に送り、
+CPU affinityを
+```
+irq cpu aff. queue
+--- -------- --------------------------
+ 62        0 texp0-TxRx-0
+ 63        1 texp0-TxRx-1
+ 64        2 texp0-TxRx-2
+ 65        3 texp0-TxRx-3
+ 66        4 texp0-TxRx-4
+ 67        5 texp0-TxRx-5
+ 68        6 texp0-TxRx-6
+ 69        7 texp0-TxRx-7
+```
+とセットしてqueue #7の処理をCPU #7にさせるようにセットし、
+sched_setaffinity()でユーザープロセスをCPU #2で走らせたときの
+``mpstat -P ALL 1``の出力:
+```
+             CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+15:41:08     all    0.25    0.00    2.88    0.00    0.25    2.76    0.00    0.00    0.00   93.86
+15:41:08       0    1.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00   99.00
+15:41:08       1    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+15:41:08       2    0.00    0.00   23.47    0.00    1.02    1.02    0.00    0.00    0.00   74.49
+15:41:08       3    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+15:41:08       4    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+15:41:08       5    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+15:41:08       6    1.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00   99.00
+15:41:08       7    0.00    0.00    0.00    0.00    1.00   21.00    0.00    0.00    0.00   78.00
+```
+またこのときの``/proc/softirqs``の``NET_{RX,TX}``の部分:
+```
+                   CPU0   CPU1   CPU2   CPU3   CPU4   CPU5   CPU6   CPU7
+15:41:08 NET_TX:      0      0      0      0      0      0      0      0 
+15:41:08 NET_RX:     25      9  24722     13     19     13     10  23270 
+```
+
+- mpstatのCPU 2のirq, softirqはTCP ack送信(?)
+- ``/proc/softirqs``のCPU2はユーザープロセスのソケットに
+  データをくべているのが計上されている(?)。
+
 ## ボードメーカー解説
 
 - Intel 40GbE (i40e) Linux Performance tuning guide https://www.intel.com/content/www/us/en/content-details/334019/intel-ethernet-controller-x710-xl710-and-intel-ethernet-converged-network-adapter-x710-xl710-family-linux-performance-tuning-guide.html
