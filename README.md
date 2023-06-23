@@ -321,6 +321,27 @@ rmgr: Cannot insert RX class rule: Invalid argument
 取得することができる。どれが更新されるか、またいつ更新されるかは
 ドライバによる。
 
+ixgbeだと``ethtool -S``でキューごとに送信、受信したパケット数と
+バイト数がそれぞれ
+``rx_queue_N_packets``, ``rx_queue_N_bytes``, ``tx_queue_N_packets``, ``tx_queue_N_bytes``
+として表示される:
+```
+tx_queue_0_packets: 22918271
+tx_queue_0_bytes: 13927114958
+tx_queue_1_packets: 24053769
+tx_queue_1_bytes: 1717815986
+(省略)
+rx_queue_0_packets: 137230359
+rx_queue_0_bytes: 207270155624
+rx_queue_1_packets: 2147500012
+rx_queue_1_bytes: 3251308679248
+```
+
+カウンタなので1秒間の値を知りたければ引き算する必要がある。
+サンプルpythonスクリプト。キュー番号が一桁のものだけ
+表示しているが必要なら``re.search()``の部分を変更する。
+[count-packet-by-queues](count-packet-by-queues)
+
 ### ethtool -d $nic
 
 ``ethtool -d``でNICレジスタのダンプができる。出力結果は
