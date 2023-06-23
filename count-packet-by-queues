@@ -1,0 +1,87 @@
+#!/usr/bin/env python3
+
+import os
+import sys
+import time # for sleep
+import signal
+import datetime
+import subprocess
+import re
+
+def usage():
+    msg = 'Usage: count-packet-by-queues NIC'
+    sys.stderr.write(msg + '\n')
+
+def sig_int(signo, frame):
+    sys.exit(0)
+
+def get_n_cpu(line):
+    return len(line.split())
+
+def get_lines(nic):
+    l = subprocess.run(['ethtool', '-S', nic], capture_output = True, check = True)
+    lines = l.stdout.decode().split('\n')
+    return_list = []
+    for line in lines:
+        line = line.strip()
+        if re.search('^rx_queue_._', line) or re.search('^tx_queue_._', line):
+            # restrict rx_queue_N_: N = 0, 1, ... 9
+            tmp = line.split()
+            return_list.append(tmp)
+
+    return return_list
+
+def is_int(s):
+    try:
+        x = int(s)
+    except ValueError as e:
+        return False
+
+    return True
+
+def subtract_lines(first, second):
+    rv = []
+    for (a, b) in zip(first, second):
+        if is_int(a):
+            d = int(b) - int(a)
+            rv.append(str(d))
+        else:
+            rv.append(a)
+
+    return rv
+
+def calc_print(prev, current):
+    now = datetime.datetime.now().strftime('%T')
+    for (a, b) in zip(prev, current):
+        print(now + ' ', end = '')
+        diff = subtract_lines(a, b)
+        for i in diff:
+            print('%6s ' % (i), end = '')
+        sys.stdout.flush()
+        print()
+
+def main():
+    if len(sys.argv) != 2:
+        usage()
+        exit(1)
+    nic = sys.argv[1]
+
+    sleep_time = 1
+
+    signal.signal(signal.SIGINT, sig_int)
+
+    prev = get_lines(nic)
+    # get_lines() return value
+    # [ [ ... , ... , ... ], [ ... , ... , ... ], ... ]
+    #   ^^^^ 1st line ^^^^   ^^^^ 2nd line ^^^^ ... 
+
+    time.sleep(sleep_time)
+    
+    while True:
+        current = get_lines(nic)
+        calc_print(prev, current)
+        prev = current
+        time.sleep(sleep_time)
+
+if __name__ == '__main__':
+    main()
