@@ -24,10 +24,10 @@ def get_lines(nic):
     return_list = []
     for line in lines:
         line = line.strip()
-        if re.search('^rx_queue_._', line) or re.search('^tx_queue_._', line):
+        #if re.search('^rx_queue_._', line) or re.search('^tx_queue_._', line):
             # restrict rx_queue_N_: N = 0, 1, ... 9
-            tmp = line.split()
-            return_list.append(tmp)
+        tmp = line.split()
+        return_list.append(tmp)
 
     return return_list
 
@@ -56,7 +56,7 @@ def calc_print(prev, current):
         print(now + ' ', end = '')
         diff = subtract_lines(a, b)
         for i in diff:
-            print('%6s ' % (i), end = '')
+            print('%s ' % (i), end = '')
         sys.stdout.flush()
         print()
 
