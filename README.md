@@ -556,11 +556,11 @@ https://cdrdv2-public.intel.com/636781/800%20Series%20Linux%20Performance%20Tuni
 
 ## 解説URLメモ
 
-- https://blog.packagecloud.io/monitoring-tuning-linux-networking-stack-receiving-data/
-- https://blog.packagecloud.io/illustrated-guide-monitoring-tuning-linux-networking-stack-receiving-data/
-- https://medium.com/coccoc-engineering-blog/linux-network-ring-buffers-cea7ead0b8e8
-- https://github.com/leandromoreira/linux-network-performance-parameters
-- https://fasterdata.es.net/
-- https://blog.nishi.network/2020/08/26/Mellanox-100GbE-1/
-- https://blog.yuuk.io/entry/linux-networkstack-tuning-rfs
+- Monitoring and Tuning the Linux Networking Stack: Receiving Data https://blog.packagecloud.io/monitoring-tuning-linux-networking-stack-receiving-data/
+- Illustrated Guide to Monitoring and Tuning the Linux Networking Stack: Receiving Data https://blog.packagecloud.io/illustrated-guide-monitoring-tuning-linux-networking-stack-receiving-data/
+- Linux network ring buffers https://medium.com/coccoc-engineering-blog/linux-network-ring-buffers-cea7ead0b8e8
+- linux-network-performance-parameters https://github.com/leandromoreira/linux-network-performance-parameters
+- ESnet Fasterdata Knowledge Base https://fasterdata.es.net/
+- 100GbEをテストする　計測編 Mellanox ConnectX-5 https://blog.nishi.network/2020/08/26/Mellanox-100GbE-1/
+- Linuxでロードバランサやキャッシュサーバをマルチコアスケールさせるためのカーネルチューニング https://blog.yuuk.io/entry/linux-networkstack-tuning-rfs
 - 10GbE時代のネットワークI/O高速化 https://speakerdeck.com/syuu1228/ogao-su-hua
