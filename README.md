@@ -338,9 +338,12 @@ rx_queue_1_bytes: 3251308679248
 ```
 
 カウンタなので1秒間の値を知りたければ引き算する必要がある。
-サンプルpythonスクリプト。キュー番号が一桁のものだけ
-表示しているが必要なら``re.search()``の部分を変更する。
-[count-packet-by-queues](count-packet-by-queues)
+サンプルpythonスクリプト: [count-nic-stats](count-nic-stats)
+
+``ethtool -S $nic``を実行したときに数字とおぼしき
+ところを1秒に1回引き算して表示する。数字でない(とおぼしき)
+ところはそのまま表示する(数字かどうかの判定は
+python3のint()を使っているだけ)。
 
 ### ethtool -d $nic
 
