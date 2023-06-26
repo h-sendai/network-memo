@@ -1,15 +1,17 @@
 #!/usr/bin/env python3
 
+# Usage: count-nic-stats eth0
+
 import os
 import sys
-import time # for sleep
+import time
 import signal
 import datetime
 import subprocess
 import re
 
 def usage():
-    msg = 'Usage: count-packet-by-queues NIC'
+    msg = 'Usage: count-nic-stats NIC'
     sys.stderr.write(msg + '\n')
 
 def sig_int(signo, frame):
@@ -20,16 +22,22 @@ def get_n_cpu(line):
 
 def get_lines(nic):
     l = subprocess.run(['ethtool', '-S', nic], capture_output = True, check = True)
-    lines = l.stdout.decode().split('\n')
-    return_list = []
-    for line in lines:
-        line = line.strip()
-        #if re.search('^rx_queue_._', line) or re.search('^tx_queue_._', line):
-            # restrict rx_queue_N_: N = 0, 1, ... 9
-        tmp = line.split()
-        return_list.append(tmp)
+    lines = l.stdout.decode()
+    # lines example:
+    # NIC statistics:\n
+    # rx_packets: 3991913562\n
+    # tx_packets: 177626818\n
+    # rx_bytes: 6041719745834\n
+    # Convert to:
+    # [
+    #   ['NIC', 'statistics:'],
+    #   ['rx_packets:' '3991913562']
+    #   ['tx_packets:' '177626818']
+    #   ['rx_bytes:'   '6041719745834']
+    # ]
+    rv = [ x.split() for x in lines.splitlines() ]
 
-    return return_list
+    return rv
 
 def is_int(s):
     try:
