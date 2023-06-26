@@ -350,6 +350,14 @@ rx_queue_1_bytes: 3251308679248
 ところはそのまま表示する(数字かどうかの判定は
 python3のint()を使っているだけ)。
 
+``ethtool -S $nic``の出力例:
+- [e100](ethtool-S/e100.txt)
+- [e1000e](ethtool-S/e1000e.txt)
+- [igb](ethtool-S/igb.txt)
+- [tg3](ethtool-S/tg3.txt)
+- [ixgbe](ethtool-S/ixgbe.txt)
+- [i40e](ethtool-S/i40e.txt)
+
 ### ethtool -d $nic
 
 ``ethtool -d``でNICレジスタのダンプができる。出力結果は
