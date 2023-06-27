@@ -591,6 +591,11 @@ https://cdrdv2-public.intel.com/334019/xl710-x710-performance-tuning-linux-guide
 PDF:
 https://cdrdv2-public.intel.com/636781/800%20Series%20Linux%20Performance%20Tuning%20Guide_Rev1.1.pdf
 
+- Intel Flow Directorがサポートされている機器リスト
+https://www.intel.co.jp/content/www/jp/ja/support/articles/000031907/ethernet-products/700-series-controllers-up-to-40gbe.html
+- Intel Flow Director設定
+https://www.intel.com/content/www/us/en/developer/articles/training/setting-up-intel-ethernet-flow-director.html
+
 ## 解説URLメモ
 
 - Monitoring and Tuning the Linux Networking Stack: Receiving Data https://blog.packagecloud.io/monitoring-tuning-linux-networking-stack-receiving-data/
