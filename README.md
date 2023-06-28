@@ -33,6 +33,18 @@ lrwxrwxrwx. 1 root root 0 May 29 08:57 lo -> ../../devices/virtual/net/lo/
 - ``echo off | sudo tree /sys/devices/system/cpu/smt/control``を実行する
 - ``echo 0 | sudo tee /sys/devices/system/cpu/cpuN/online``を必要な数だけ繰り返す。NにHyperThreadに対応するCPUコア番号を入れる。
 
+HyperThreadに関連して
+
+Linux kernelに付属するドキュメント
+Scaling in the Linux Networking Stack
+https://www.kernel.org/doc/Documentation/networking/scaling.txt
+には「HyperThreadは割り込みハンドリングには利益がない」と書かれている。
+> Per-cpu load can be observed using the mpstat utility, but note that on
+> processors with hyperthreading (HT), each hyperthread is represented as
+> a separate CPU. For interrupt handling, HT has shown no benefit in
+> initial tests, so limit the number of queues to the number of CPU cores
+> in the system.
+
 ## ハードウェア情報の取得
 
 hwlocおよびlwloc-guiパッケージをインストールするとCPUのコア番号の振り方、
