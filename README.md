@@ -379,7 +379,7 @@ NICにより、e1000e, igb, ixgbeはレジスタ名も表示されてわかり�
 コントローラのデータシートを読む必要がある。
 
 - [e1000eの例](e1000e.dump.txt)
-- [igbの例](igb.dump.txt)
+- [igbの例](igb.dump.txt) [メモ](igb.md)
 
 ## ソケットレシーブバッファ
 
