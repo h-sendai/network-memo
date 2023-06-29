@@ -32,16 +32,16 @@
        Loopback mode:                                 normal
        Receive buffer size:                           2048
 0x02808: RDLEN  (Receive desc length)                 0x00001000
-0x02810: RDH    (Receive desc head)                   0x0000000D
-0x02818: RDT    (Receive desc tail)                   0x0000000C
+0x02810: RDH    (Receive desc head)                   0x00000009
+0x02818: RDT    (Receive desc tail)                   0x00000008
 0x00400: TCTL (Transmit ctrl register)                0xA503F0FA
        Transmitter:                                   enabled
        Pad short packets:                             enabled
        Software XOFF Transmission:                    disabled
        Re-transmit on late collision:                 enabled
 0x03808: TDLEN       (Transmit desc length)           0x00001000
-0x03810: TDH         (Transmit desc head)             0x00000000
-0x03818: TDT         (Transmit desc tail)             0x00000000
+0x03810: TDH         (Transmit desc head)             0x00000062
+0x03818: TDT         (Transmit desc tail)             0x00000062
 0x00018: CTRL_EXT    (Extended device control)        0x101400C0
 0x00018: MDIC        (MDI control)                    0x180A7C00
 0x00024: SCTL        (SERDES ANA)                     0x00000000
@@ -50,7 +50,7 @@
 0x00E00: LEDCTL      (LED control)                    0x07068402
 0x01000: PBA         (Packet buffer allocation)       0x00000000
 0x01008: PBS         (Packet buffer size)             0x00000000
-0x01048: FRTIMER     (Free running timer)             0xD2AA08BA
+0x01048: FRTIMER     (Free running timer)             0xFF052328
 0x0104C: TCPTIMER    (TCP timer)                      0x00000000
 0x00010: EEC         (EEPROM/FLASH control)           0x0008471E
 0x01580: EICR        (Extended interrupt cause)       0x00000000
@@ -112,19 +112,19 @@
 0x04050: XOFFRXC     (XOFF received count)            0x00000000
 0x04054: XOFFTXC     (XOFF transmitted count)         0x00000000
 0x04058: FCRUC       (FC received unsupported count)  0x00000000
-0x0405C: PRC64       (Packets rx (64 B) count)        0x0000000D
-0x04060: PRC127      (Packets rx (65-127 B) count)    0x00000014
-0x04064: PRC255      (Packets rx (128-255 B) count)   0x0000000B
-0x04068: PRC511      (Packets rx (256-511 B) count)   0x00000000
-0x0406C: PRC1023     (Packets rx (512-1023 B) count)  0x00002EFF
-0x04070: PRC1522     (Packets rx (1024-max B) count)  0x00020500
-0x04074: GPRC        (Good packets received count)    0x0002342B
-0x04078: BPRC        (Broadcast packets rx count)     0x00000009
-0x0407C: MPRC        (Multicast packets rx count)     0x00000016
-0x04080: GPTC        (Good packets tx count)          0x0000509B
-0x04088: GORCL       (Good octets rx count lower)     0x0C5A48C1
+0x0405C: PRC64       (Packets rx (64 B) count)        0x00000045
+0x04060: PRC127      (Packets rx (65-127 B) count)    0x00000098
+0x04064: PRC255      (Packets rx (128-255 B) count)   0x0000003D
+0x04068: PRC511      (Packets rx (256-511 B) count)   0x00000070
+0x0406C: PRC1023     (Packets rx (512-1023 B) count)  0x000A5C35
+0x04070: PRC1522     (Packets rx (1024-max B) count)  0x0349F05C
+0x04074: GPRC        (Good packets received count)    0x03544E1B
+0x04078: BPRC        (Broadcast packets rx count)     0x0000000B
+0x0407C: MPRC        (Multicast packets rx count)     0x00000019
+0x04080: GPTC        (Good packets tx count)          0x006B283F
+0x04088: GORCL       (Good octets rx count lower)     0x95B9B68C
 0x0408C: GORCH       (Good octets rx count upper)     0x00000000
-0x04090: GOTCL       (Good octets tx count lower)     0x00160B69
+0x04090: GOTCL       (Good octets tx count lower)     0x1D4CFC17
 0x04094: GOTCH       (Good octets tx count upper)     0x00000000
 0x040A0: RNBC        (Receive no buffers count)       0x00000000
 0x040A4: RUC         (Receive undersize count)        0x00000000
@@ -134,22 +134,22 @@
 0x040B4: MGPRC       (Management packets rx count)    0x00000000
 0x040B8: MGPDC       (Management pkts dropped count)  0x00000000
 0x040BC: MGPTC       (Management packets tx count)    0x00000000
-0x040C0: TORL        (Total octets received lower)    0x00000000
+0x040C0: TORL        (Total octets received lower)    0x00000013
 0x040C4: TORH        (Total octets received upper)    0x00000000
 0x040C8: TOTL        (Total octets transmitted lower) 0x00000000
 0x040CC: TOTH        (Total octets transmitted upper) 0x00000000
-0x040D0: TPR         (Total packets received)         0x0002343D
-0x040D4: TPT         (Total packets transmitted)      0x0000509B
-0x040D8: PTC64       (Packets tx (64 B) count)        0x0000000A
-0x040DC: PTC127      (Packets tx (65-127 B) count)    0x00005090
+0x040D0: TPR         (Total packets received)         0x03544E31
+0x040D4: TPT         (Total packets transmitted)      0x006B283F
+0x040D8: PTC64       (Packets tx (64 B) count)        0x000002DD
+0x040DC: PTC127      (Packets tx (65-127 B) count)    0x006B2561
 0x040E0: PTC255      (Packets tx (128-255 B) count)   0x00000001
 0x040E4: PTC511      (Packets tx (256-511 B) count)   0x00000000
 0x040E8: PTC1023     (Packets tx (512-1023 B) count)  0x00000000
 0x040EC: PTC1522     (Packets tx (> 1024 B) count)    0x00000000
 0x040F0: MPTC        (Multicast packets tx count)     0x00000001
-0x040F4: BPTC        (Broadcast packets tx count)     0x00000002
+0x040F4: BPTC        (Broadcast packets tx count)     0x00000004
 0x040F8: TSCTC       (TCP segment context tx count)   0x00000000
-0x04100: IAC         (Interrupt assertion count)      0x00017D4F
+0x04100: IAC         (Interrupt assertion count)      0x011D7CF5
 0x04104: RPTHC       (Rx packets to host count)       0x00000000
 0x04118: HGPTC       (Host good packets tx count)     0x00000000
 0x04128: HGORCL      (Host good octets rx cnt lower)  0x00000000
@@ -179,14 +179,14 @@
 0x02908: RDLEN1      (Rx descriptor length1)          0x00001000
 0x02A08: RDLEN2      (Rx descriptor length2)          0x00001000
 0x02B08: RDLEN3      (Rx descriptor length3)          0x00001000
-0x02810: RDH0        (Rx descriptor head0)            0x0000000D
-0x02910: RDH1        (Rx descriptor head1)            0x00000000
-0x02A10: RDH2        (Rx descriptor head2)            0x00000000
-0x02B10: RDH3        (Rx descriptor head3)            0x00000001
-0x02818: RDT0        (Rx descriptor tail0)            0x0000000C
-0x02918: RDT1        (Rx descriptor tail1)            0x000000FF
-0x02A18: RDT2        (Rx descriptor tail2)            0x000000FF
-0x02B18: RDT3        (Rx descriptor tail3)            0x00000000
+0x02810: RDH0        (Rx descriptor head0)            0x00000009
+0x02910: RDH1        (Rx descriptor head1)            0x00000046
+0x02A10: RDH2        (Rx descriptor head2)            0x0000007E
+0x02B10: RDH3        (Rx descriptor head3)            0x00000000
+0x02818: RDT0        (Rx descriptor tail0)            0x00000008
+0x02918: RDT1        (Rx descriptor tail1)            0x00000045
+0x02A18: RDT2        (Rx descriptor tail2)            0x0000007D
+0x02B18: RDT3        (Rx descriptor tail3)            0x000000FF
 0x02828: RXDCTL0     (Rx descriptor control0)         0x02040808
 0x02928: RXDCTL1     (Rx descriptor control1)         0x02040808
 0x02A28: RXDCTL2     (Rx descriptor control2)         0x02040808
@@ -194,9 +194,9 @@
 0x01680: EITR0       (Interrupt throttle0)            0x00000000
 0x01684: EITR1       (Interrupt throttle1)            0x000000C4
 0x01688: EITR2       (Interrupt throttle2)            0x000000C4
-0x0168C: EITR3       (Interrupt throttle3)            0x000003D4
+0x0168C: EITR3       (Interrupt throttle3)            0x00000300
 0x01690: EITR4       (Interrupt throttle4)            0x000000C4
-0x01694: EITR5       (Interrupt throttle5)            0x000003D4
+0x01694: EITR5       (Interrupt throttle5)            0x00000300
 0x01698: EITR6       (Interrupt throttle6)            0x000000C4
 0x0169C: EITR7       (Interrupt throttle7)            0x000000C4
 0x016A0: EITR8       (Interrupt throttle8)            0x000000C4
@@ -261,14 +261,14 @@
 0x03908: TDLEN1      (Tx descriptor length1)          0x00001000
 0x03A08: TDLEN2      (Tx descriptor length2)          0x00001000
 0x03B08: TDLEN3      (Tx descriptor length3)          0x00001000
-0x03810: TDH0        (Transmit descriptor head0)      0x00000000
-0x03910: TDH1        (Transmit descriptor head1)      0x00000008
-0x03A10: TDH2        (Transmit descriptor head2)      0x00000000
-0x03B10: TDH3        (Transmit descriptor head3)      0x00000000
-0x03818: TDT0        (Transmit descriptor tail0)      0x00000000
-0x03918: TDT1        (Transmit descriptor tail1)      0x00000008
-0x03A18: TDT2        (Transmit descriptor tail2)      0x00000000
-0x03B18: TDT3        (Transmit descriptor tail3)      0x00000000
+0x03810: TDH0        (Transmit descriptor head0)      0x00000062
+0x03910: TDH1        (Transmit descriptor head1)      0x000000A2
+0x03A10: TDH2        (Transmit descriptor head2)      0x000000C9
+0x03B10: TDH3        (Transmit descriptor head3)      0x00000047
+0x03818: TDT0        (Transmit descriptor tail0)      0x00000062
+0x03918: TDT1        (Transmit descriptor tail1)      0x000000A2
+0x03A18: TDT2        (Transmit descriptor tail2)      0x000000C9
+0x03B18: TDT3        (Transmit descriptor tail3)      0x00000047
 0x03828: TXDCTL0     (Transmit descriptor control0)   0x02100108
 0x03928: TXDCTL1     (Transmit descriptor control1)   0x02100108
 0x03A28: TXDCTL2     (Transmit descriptor control2)   0x02100108
@@ -296,35 +296,35 @@
 0x05A00: WUPM00      (Wake up packet memory00)        0x7A7AC40C
 0x05A04: WUPM01      (Wake up packet memory01)        0x36A0CD56
 0x05A08: WUPM02      (Wake up packet memory02)        0x7ADA1F9F
-0x05A0C: WUPM03      (Wake up packet memory03)        0x01000608
-0x05A10: WUPM04      (Wake up packet memory04)        0x04060008
-0x05A14: WUPM05      (Wake up packet memory05)        0x36A00200
-0x05A18: WUPM06      (Wake up packet memory06)        0x7ADA1F9F
-0x05A1C: WUPM07      (Wake up packet memory07)        0xD60AA8C0
-0x05A20: WUPM08      (Wake up packet memory08)        0x7A7AC40C
-0x05A24: WUPM09      (Wake up packet memory09)        0xA8C0CD56
-0x05A28: WUPM10      (Wake up packet memory10)        0x0000CA0A
-0x05A2C: WUPM11      (Wake up packet memory11)        0x00000000
-0x05A30: WUPM12      (Wake up packet memory12)        0x00000000
-0x05A34: WUPM13      (Wake up packet memory13)        0x00000000
-0x05A38: WUPM14      (Wake up packet memory14)        0x00000000
-0x05A3C: WUPM15      (Wake up packet memory15)        0x67075AA1
-0x05A40: WUPM16      (Wake up packet memory16)        0xC0000040
-0x05A44: WUPM17      (Wake up packet memory17)        0x00000001
-0x05A48: WUPM18      (Wake up packet memory18)        0x21201F1E
-0x05A4C: WUPM19      (Wake up packet memory19)        0x25242322
-0x05A50: WUPM20      (Wake up packet memory20)        0x29282726
-0x05A54: WUPM21      (Wake up packet memory21)        0x2D2C2B2A
-0x05A58: WUPM22      (Wake up packet memory22)        0x31302F2E
-0x05A5C: WUPM23      (Wake up packet memory23)        0x35343332
-0x05A60: WUPM24      (Wake up packet memory24)        0x78173736
-0x05A64: WUPM25      (Wake up packet memory25)        0x0066E1FF
-0x05A68: WUPM26      (Wake up packet memory26)        0xC0020066
-0x05A6C: WUPM27      (Wake up packet memory27)        0x00000001
-0x05A70: WUPM28      (Wake up packet memory28)        0x00000001
-0x05A74: WUPM29      (Wake up packet memory29)        0xC0040078
-0x05A78: WUPM30      (Wake up packet memory30)        0x31D60AA8
-0x05A7C: WUPM31      (Wake up packet memory31)        0x7FA2B947
+0x05A0C: WUPM03      (Wake up packet memory03)        0x00450008
+0x05A10: WUPM04      (Wake up packet memory04)        0x2567DC05
+0x05A14: WUPM05      (Wake up packet memory05)        0x06400040
+0x05A18: WUPM06      (Wake up packet memory06)        0xA8C00637
+0x05A1C: WUPM07      (Wake up packet memory07)        0xA8C0D60A
+0x05A20: WUPM08      (Wake up packet memory08)        0xD204CA0A
+0x05A24: WUPM09      (Wake up packet memory09)        0xA14546A2
+0x05A28: WUPM10      (Wake up packet memory10)        0x97F765B9
+0x05A2C: WUPM11      (Wake up packet memory11)        0x1880740C
+0x05A30: WUPM12      (Wake up packet memory12)        0x04B5FE01
+0x05A34: WUPM13      (Wake up packet memory13)        0x01010000
+0x05A38: WUPM14      (Wake up packet memory14)        0xACF90A08
+0x05A3C: WUPM15      (Wake up packet memory15)        0x4B3277DB
+0x05A40: WUPM16      (Wake up packet memory16)        0x00007E71
+0x05A44: WUPM17      (Wake up packet memory17)        0x00000000
+0x05A48: WUPM18      (Wake up packet memory18)        0x00000000
+0x05A4C: WUPM19      (Wake up packet memory19)        0x00000000
+0x05A50: WUPM20      (Wake up packet memory20)        0x00000000
+0x05A54: WUPM21      (Wake up packet memory21)        0x00000000
+0x05A58: WUPM22      (Wake up packet memory22)        0x00000000
+0x05A5C: WUPM23      (Wake up packet memory23)        0x00000000
+0x05A60: WUPM24      (Wake up packet memory24)        0x00000000
+0x05A64: WUPM25      (Wake up packet memory25)        0x00000000
+0x05A68: WUPM26      (Wake up packet memory26)        0x00000000
+0x05A6C: WUPM27      (Wake up packet memory27)        0x00000000
+0x05A70: WUPM28      (Wake up packet memory28)        0x00000000
+0x05A74: WUPM29      (Wake up packet memory29)        0x00000000
+0x05A78: WUPM30      (Wake up packet memory30)        0x00000000
+0x05A7C: WUPM31      (Wake up packet memory31)        0x00000000
 0x09000: FFMT000     (Flexible filter mask table000)  0x00000000
 0x09008: FFMT001     (Flexible filter mask table001)  0x00000000
 0x09010: FFMT002     (Flexible filter mask table002)  0x00000000
@@ -585,8 +585,8 @@
 0x05F08: FFLT1       (Flexible filter length table1)  0x00000000
 0x05F10: FFLT2       (Flexible filter length table2)  0x00000000
 0x05F18: FFLT3       (Flexible filter length table3)  0x00000000
-0x03410: TDFH        (Tx data FIFO head)              0x000003A4
-0x03418: TDFT        (Tx data FIFO tail)              0x000003A4
-0x03420: TDFHS       (Tx data FIFO head saved)        0x000003A4
+0x03410: TDFH        (Tx data FIFO head)              0x00000256
+0x03418: TDFT        (Tx data FIFO tail)              0x00000256
+0x03420: TDFHS       (Tx data FIFO head saved)        0x00000256
 0x03430: TDFPC       (Tx data FIFO packet count)      0x00000000
 0x05BF4: RR2DCDELAY  (Max. DMA read delay)            0x00000000
