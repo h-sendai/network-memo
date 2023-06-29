@@ -29,9 +29,11 @@ igb 0000:05:00.1: Using MSI-X interrupts. 8 rx queue(s), 8 tx queue(s)
 とでるのでqueueはrx, txそれぞれ8個/1 NICだと思うんだが。
 と思ったらigbのデータシート
 8.10.8に
+
 > Note: In order to keep compatibility with the 82575, for queues 0-3,
 > these registers are aliased to addresses 0x2810, 0x2910, 0x2A10 &
 > 0x2B10 respectively.
+
 という記述があった。0x2810などは上のethtool -gコマンドの出力結果に
 でてきているアドレスなのでプログラム側でこのエイリアスを読んでいる
 ということだろう。
