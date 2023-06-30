@@ -379,7 +379,32 @@ NICにより、e1000e, igb, ixgbeはレジスタ名も表示されてわかり�
 コントローラのデータシートを読む必要がある。
 
 - [e1000eの例](e1000e.dump.txt)
-- [igbの例](igb.dump.txt) [メモ](igb.md)
+- [igbの例](igb.dump.txt)、 [メモ](igb.md)
+
+### ethtool -k/-K $nic
+
+NICのいろいろの機能の状態(ON/OFF)をみたりセットしたりするオプション。
+
+#### offload機能
+
+Large Receive Offload (lro)はLinuxでは無効に設定されている。
+かわりにソフトウェア実装のGeneric Receive Offloadが有効化されていて
+tcpdumpで見るとlengthが(IPでみて)1460バイトを越えるパケットが観測される。
+
+NICで受信したパケットはrx descriptorが指すPC上のメモリに
+DMAで転送されるがそのときのサイズはlroが無効になっているせいか
+1500バイト程度で入るようだ。
+
+tcp-server-client/serverで
+```
+./server -b $((1448*2)) -r $((1448*10))
+(1448*2バイトのバッファをwrite()して1448*10バイト/秒になるように
+データを送る)
+```
+と起動して受信してtcpdumpで見ると``length 2896``とでてくる。
+同時に``ethtool -d $nic``で1秒おきに``RDH0N``の増加数を
+みると1秒に10個づつふえているので、rx descriptorがさす
+バッファに1500*2バイト入るわけではないことが確認できる。
 
 ## ソケットレシーブバッファ
 
