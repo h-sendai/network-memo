@@ -33,6 +33,31 @@ lrwxrwxrwx. 1 root root 0 May 29 08:57 lo -> ../../devices/virtual/net/lo/
 - ``echo off | sudo tree /sys/devices/system/cpu/smt/control``を実行する
 - ``echo 0 | sudo tee /sys/devices/system/cpu/cpuN/online``を必要な数だけ繰り返す。NにHyperThreadに対応するCPUコア番号を入れる。
 
+``/sys/devices/system/cpu/smt/control``に``echo off``すると
+dmesgで次のような出力が出てくる:
+```
+[25142.533405] IRQ 52: no longer affine to CPU8
+[25142.546184] IRQ 65: no longer affine to CPU8
+[25142.558950] IRQ 82: no longer affine to CPU8
+[25142.573205] smpboot: CPU 8 is now offline
+[25142.614123] IRQ 39: no longer affine to CPU9
+[25142.626892] IRQ 74: no longer affine to CPU9
+[25142.639653] IRQ 75: no longer affine to CPU9
+[25142.652417] IRQ 77: no longer affine to CPU9
+[25142.665185] IRQ 84: no longer affine to CPU9
+[25142.679053] smpboot: CPU 9 is now offline
+[25142.728125] IRQ 35: no longer affine to CPU10
+[25142.742211] smpboot: CPU 10 is now offline
+[25142.766126] IRQ 37: no longer affine to CPU11
+[25142.780655] smpboot: CPU 11 is now offline
+[25142.802184] smpboot: CPU 12 is now offline
+[25142.825170] smpboot: CPU 13 is now offline
+[25142.856593] smpboot: CPU 14 is now offline
+[25142.897265] smpboot: CPU 15 is now offline
+```
+CPU N offlineの他にofflineになったCPUが担当していた
+IRQについて担当が変更になったというメッセージがでている。
+
 HyperThreadに関連して
 
 Linux kernelに付属するドキュメント
