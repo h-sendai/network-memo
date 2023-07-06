@@ -58,6 +58,21 @@ dmesgで次のような出力が出てくる:
 CPU N offlineの他にofflineになったCPUが担当していた
 IRQについて担当が変更になったというメッセージがでている。
 
+offだったのを
+``echo on > /sys/devices/system/cpu/smt/control``
+でHyperthredingを有効にすると
+```
+[25475.690989] smpboot: Booting Node 0 Processor 8 APIC 0x1
+[25475.735968] smpboot: Booting Node 0 Processor 9 APIC 0x3
+[25475.753788] smpboot: Booting Node 0 Processor 10 APIC 0x5
+[25475.772238] smpboot: Booting Node 0 Processor 11 APIC 0x7
+[25475.790845] smpboot: Booting Node 0 Processor 12 APIC 0x9
+[25475.809179] smpboot: Booting Node 0 Processor 13 APIC 0xb
+[25475.827645] smpboot: Booting Node 0 Processor 14 APIC 0xd
+[25475.846145] smpboot: Booting Node 0 Processor 15 APIC 0xf
+```
+とでる。
+
 HyperThreadに関連して
 
 Linux kernelに付属するドキュメント
